@@ -14,22 +14,22 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="765.0" prefWidth="1313.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.girsang.client.controller.DataPenggunaController">
+<AnchorPane prefHeight="765.0" prefWidth="1313.0" styleClass="card" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.girsang.client.controller.DataPenggunaController">
    <children>
       <TitledPane collapsible="false" prefHeight="485.0" prefWidth="600.0" text="Data Pengguna" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <content>
             <AnchorPane prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <TableView fx:id="tblPengguna" layoutX="471.0" layoutY="25.0" prefHeight="700.0" prefWidth="825.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="465.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                  <TableView fx:id="tblPengguna" layoutX="471.0" layoutY="25.0" prefHeight="700.0" prefWidth="825.0" styleClass="column-header" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="465.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                     <columns>
                         <TableColumn fx:id="colId" prefWidth="60" text="ID" />
                         <TableColumn fx:id="colNama" prefWidth="241.0" text="Nama Lengkap" />
                         <TableColumn fx:id="colAkun" prefWidth="198.0" text="Nama Pengguna" />
-                        <TableColumn prefWidth="199.0" text="Level Pengguna" />
-                        <TableColumn prefWidth="116.0" text="Status" />
+                        <TableColumn fx:id="colLevel" prefWidth="199.0" text="Level Pengguna" />
+                        <TableColumn fx:id="colStatus" prefWidth="116.0" text="Status" />
                     </columns>
                   </TableView>
-                  <Pane layoutX="14.0" layoutY="25.0" prefHeight="297.0" prefWidth="434.0" styleClass="custom-border" stylesheets="@../css/style.css" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+                  <Pane layoutX="14.0" layoutY="25.0" prefHeight="297.0" prefWidth="434.0" styleClass="custom-border" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
                      <children>
                         <Label layoutX="14.0" layoutY="65.0" text="Nama Lengkap">
                            <padding>
@@ -47,12 +47,11 @@
                            </padding>
                         </Label>
                         <TextField fx:id="txtNamaPengguna" layoutX="130.0" layoutY="71.0" prefHeight="25.0" prefWidth="269.0" />
-                        <TextField fx:id="txtNamaAkun" layoutX="130.0" layoutY="108.0" prefHeight="25.0" prefWidth="165.0" />
-                        <ComboBox fx:id="cboLevel" layoutX="130.0" layoutY="145.0" prefHeight="25.0" prefWidth="269.0" />
+                        <TextField fx:id="txtNamaAkun" layoutX="130.0" layoutY="108.0" prefHeight="11.0" prefWidth="267.0" />
+                        <ComboBox fx:id="cboLevel" layoutX="130.0" layoutY="145.0" prefHeight="18.0" prefWidth="269.0" />
                         <TextField fx:id="txtPassword" layoutX="130.0" layoutY="182.0" prefHeight="25.0" prefWidth="267.0" />
                          <TextField fx:id="txtUlangPassword" layoutX="130.0" layoutY="219.0" prefHeight="25.0" prefWidth="267.0" />
                         <CheckBox fx:id="chkStatus" layoutX="130.0" layoutY="260.0" mnemonicParsing="false" text="Aktif" />
-                         <Button fx:id="btnCari" layoutX="308.0" layoutY="108.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="89.0" text="Cari" />
                         <Label layoutX="14.0" layoutY="213.0" text="Ulangi Password">
                            <padding>
                               <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
@@ -68,7 +67,7 @@
                               <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
                            </padding>
                         </Label>
-                        <Label layoutX="11.0" layoutY="14.0" text="Data Pengguna">
+                        <Label layoutX="11.0" layoutY="14.0" styleClass="title-label" stylesheets="@../css/style.css" text="Data Pengguna">
                            <padding>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </padding>
@@ -78,11 +77,11 @@
                         </Label>
                         </children>
                   </Pane>
-                  <HBox alignment="CENTER" layoutX="20.0" layoutY="337.0" prefHeight="100.0" prefWidth="434.0" spacing="20.0" styleClass="custom-border" stylesheets="@../css/style.css" AnchorPane.leftAnchor="10.0">
+                  <HBox alignment="CENTER" layoutX="20.0" layoutY="337.0" prefHeight="100.0" prefWidth="434.0" spacing="20.0" styleClass="custom-border" AnchorPane.leftAnchor="10.0">
                      <children>
                         <Button fx:id="btnSimpan" mnemonicParsing="false" prefHeight="54.0" prefWidth="75.0" text="Simpan" />
-                        <Button fx:id="btnHapus" mnemonicParsing="false" prefHeight="54.0" prefWidth="75.0" text="Hapus" />
-                        <Button fx:id="btnRefresh" mnemonicParsing="false" prefHeight="54.0" prefWidth="75.0" text="Refresh" />
+                        <Button fx:id="btnHapus" mnemonicParsing="false" prefHeight="54.0" prefWidth="75.0" styleClass="button-danger" text="Hapus" />
+                        <Button fx:id="btnRefresh" mnemonicParsing="false" prefHeight="54.0" prefWidth="75.0" styleClass="button-outline" text="Refresh" />
                         <Button fx:id="btnTutup" mnemonicParsing="false" prefHeight="54.0" prefWidth="75.0" text="Tutup" />
                      </children>
                   </HBox>

@@ -1,5 +1,6 @@
 package com.girsang.server.controller
 
+import com.girsang.server.model.DTO.DataLoginDTO
 import com.girsang.server.model.entity.DataPengguna
 import com.girsang.server.service.DataPenggunaService
 import jakarta.validation.Valid
@@ -23,15 +24,15 @@ class DataPenggunaController(private val service: DataPenggunaService) {
     }
 
     @PostMapping("/login")
-    fun login(
-        @RequestParam namaPengguna: String,
-        @RequestParam kataSandi: String
-    ): ResponseEntity<Any> {
-        val pengguna = service.login(namaPengguna, kataSandi)
-        return if (pengguna != null && pengguna.status) {
+    fun login(@RequestBody dto: DataLoginDTO): ResponseEntity<Any> {
+
+        val pengguna = service.login(dto.namaPengguna, dto.kataSandi)
+
+        return if (pengguna != null) {
             ResponseEntity.ok(pengguna)
         } else {
-            ResponseEntity.status(401).body(mapOf("error" to "Nama pengguna atau kata sandi salah"))
+            ResponseEntity.status(401)
+                .body(mapOf("error" to "Nama pengguna atau kata sandi salah"))
         }
     }
 
@@ -42,7 +43,7 @@ class DataPenggunaController(private val service: DataPenggunaService) {
     }
 
     @PutMapping("/{id}")
-    fun update(@PathVariable id: Long, @RequestBody pengguna: DataPengguna): ResponseEntity<Any> {
+    fun update(@Valid @PathVariable id: Long,@Valid @RequestBody pengguna: DataPengguna): ResponseEntity<Any> {
         return try {
             val update =service.update(id, pengguna)
             ResponseEntity.ok(update)

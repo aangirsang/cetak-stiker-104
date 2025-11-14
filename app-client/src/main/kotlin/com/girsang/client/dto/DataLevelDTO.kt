@@ -3,9 +3,9 @@ package com.girsang.client.dto
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class PenggunaDTO(
+data class DataLevelDTO(
     val id: Long? = null,
-    val namaLengkap: String,
-    val namaAkun: String,
-    val kataSandi: String
-)
+    val level: String
+){
+    override fun toString(): String = level
+}

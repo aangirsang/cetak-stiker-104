@@ -1,9 +1,10 @@
 package com.girsang.client.controller
 
 import client.util.PesanPeringatan
-import com.girsang.client.dto.KategoriDTO
-import com.girsang.client.dto.PenggunaDTO
+import com.girsang.client.dto.DataLevelDTO
+import com.girsang.client.dto.DataPenggunaDTO
 import javafx.application.Platform
+import javafx.beans.property.SimpleIntegerProperty
 import javafx.beans.property.SimpleLongProperty
 import javafx.beans.property.SimpleStringProperty
 import javafx.collections.FXCollections
@@ -36,33 +37,44 @@ class DataPenggunaController : Initializable {
     @FXML private lateinit var txtPassword: TextField
     @FXML private lateinit var txtUlangPassword: TextField
 
-    @FXML private lateinit var cboLevel: ComboBox<KategoriDTO>
+    @FXML private lateinit var cboLevel: ComboBox<DataLevelDTO>
     @FXML private lateinit var chkStatus: CheckBox
 
     @FXML private lateinit var btnTutup: Button
     @FXML private lateinit var btnSimpan: Button
     @FXML private lateinit var btnRefresh: Button
-    @FXML private lateinit var btnCari: Button
     @FXML private lateinit var btnHapus: Button
 
-    @FXML private lateinit var tblPengguna: TableView<PenggunaDTO>
-    @FXML private lateinit var colId: TableColumn<PenggunaDTO, Long>
-    @FXML private lateinit var colNama: TableColumn<PenggunaDTO, String>
-    @FXML private lateinit var colAkun: TableColumn<PenggunaDTO, String>
+    @FXML private lateinit var tblPengguna: TableView<DataPenggunaDTO>
+    @FXML private lateinit var colId: TableColumn<DataPenggunaDTO, Int>
+    @FXML private lateinit var colNama: TableColumn<DataPenggunaDTO, String>
+    @FXML private lateinit var colAkun: TableColumn<DataPenggunaDTO, String>
+    @FXML private lateinit var colLevel: TableColumn<DataPenggunaDTO, String>
+    @FXML private lateinit var colStatus: TableColumn<DataPenggunaDTO, String>
 
     private var clientController: MainClientAppController? = null
     private var parentController: MainClientAppController? = null
 
     override fun initialize(p0: URL?, p1: ResourceBundle?) {
-        colId.setCellValueFactory { SimpleLongProperty(it.value.id ?: 0).asObject() }
+        colId.setCellValueFactory { cellData ->
+            SimpleIntegerProperty(
+                tblPengguna.items.indexOf(cellData.value) + 1
+            ).asObject()
+        }
+        colId.text = "Nomor"
+        colId.isResizable = true
         colNama.setCellValueFactory { SimpleStringProperty(it.value.namaLengkap) }
-        colAkun.setCellValueFactory { SimpleStringProperty(it.value.namaAkun) }
+        colAkun.setCellValueFactory { SimpleStringProperty(it.value.namaPengguna) }
+        colLevel.setCellValueFactory { SimpleStringProperty(it.value.dataLevel.level) }
+        colStatus.setCellValueFactory { cellData ->
+            val status = cellData.value.status
+            SimpleStringProperty(if (status) "Aktif" else "Non-Aktif")
+        }
 
         btnTutup.setOnAction { tutup() }
         btnSimpan.setOnAction { simpanPengguna() }
         btnRefresh.setOnAction { bersih() }
         btnHapus.setOnAction {hapusData()}
-        btnCari.setOnAction { cariPenggunaByNamaAkun(txtNamaAkun.text) }
 
         // 🔹 Tambahkan listener untuk selection
         tblPengguna.selectionModel.selectedItemProperty().addListener { _, _, newValue ->
@@ -76,7 +88,8 @@ class DataPenggunaController : Initializable {
         this.clientController = controller  // ✅ simpan controller dulu
 
         if (!controller.url.isNullOrBlank()) {
-            loadData() // ✅ baru panggil setelah URL diset
+            loadDataPengguna() // ✅ baru panggil setelah URL diset
+            loadLevel()
         } else {
             println("⚠️ URL belum di-set, data tidak bisa dimuat")
         }
@@ -89,11 +102,15 @@ class DataPenggunaController : Initializable {
         txtNamaAkun.clear()
         txtPassword.clear()
         txtUlangPassword.clear()
+
         tblPengguna.selectionModel.clearSelection()
+        cboLevel.selectionModel.clearSelection()
+
+        chkStatus.isSelected = false
 
         btnSimpan.text  = "Simpan"
 
-        loadData()
+        loadDataPengguna()
     }
     fun tutup() {
         parentController?.tutupForm()
@@ -104,8 +121,10 @@ class DataPenggunaController : Initializable {
             val namaAkun = txtNamaAkun.text.trim()
             val password = txtPassword.text.trim()
             val ulangPassword = txtUlangPassword.text.trim()
+            val level = getLevelTerpilih()
+            val status = chkStatus.isSelected
 
-            if (namaPengguna.isEmpty() || namaAkun.isEmpty() || password.isEmpty() || ulangPassword.isEmpty()) {
+            if (namaPengguna.isEmpty() || namaAkun.isEmpty() || password.isEmpty() || ulangPassword.isEmpty() || level==null) {
                 PesanPeringatan.warning("Peringatan","Semua field harus diisi!")
                 return
             }
@@ -116,10 +135,20 @@ class DataPenggunaController : Initializable {
 
             Thread {
                 try {
-                    val dto = PenggunaDTO(namaLengkap = namaPengguna, namaAkun = namaAkun, kataSandi = password)
+                    val dto = DataPenggunaDTO(
+                        namaLengkap = namaPengguna,
+                        namaPengguna = namaAkun,
+                        kataSandi = password,
+                        dataLevel = level,
+                        status = status)
+                    println("namaLengkap = $namaPengguna")
+                    println("namaPengguna = $namaAkun")
+                    println("kataSandi = $password")
+                    println("dataLevel = ${level.id}")
+                    println("status = $status")
                     val body = json.encodeToString(dto)
                     val builder = HttpRequest.newBuilder()
-                        .uri(URI.create("${clientController?.url}/api/pengguna"))
+                        .uri(URI.create("${clientController?.url}/api/data-pengguna"))
                         .POST(HttpRequest.BodyPublishers.ofString(body))
                         .header("Content-Type", "application/json")
 
@@ -152,12 +181,14 @@ class DataPenggunaController : Initializable {
             val namaAkun = txtNamaAkun.text.trim()
             val password = txtPassword.text.trim()
             val ulangPassword = txtUlangPassword.text.trim()
+            val level = getLevelTerpilih()
+            val status = chkStatus.isSelected
 
             if (id == null) {
                 PesanPeringatan.error("Udah Data", "Data ID tidak ditemukan!")
                 return
             }
-            if (namaPengguna.isEmpty() || namaAkun.isEmpty() || password.isEmpty() || ulangPassword.isEmpty()) {
+            if (namaPengguna.isEmpty() || namaAkun.isEmpty() || password.isEmpty() || ulangPassword.isEmpty() || level==null) {
                 PesanPeringatan.warning("Peringatan","Semua field harus diisi!")
                 return
             }
@@ -171,10 +202,16 @@ class DataPenggunaController : Initializable {
                 Thread {
                     try {
                         val dto =
-                            PenggunaDTO(id = id, namaLengkap = namaPengguna, namaAkun = namaAkun, kataSandi = password)
+                            DataPenggunaDTO(
+                                id = id,
+                                namaLengkap = namaPengguna,
+                                namaPengguna = namaAkun,
+                                kataSandi = password,
+                                dataLevel = level,
+                                status = status)
                         val body = json.encodeToString(dto)
                         val builder = HttpRequest.newBuilder()
-                            .uri(URI.create("${clientController?.url}/api/pengguna/${id}"))
+                            .uri(URI.create("${clientController?.url}/api/data-pengguna/${id}"))
                             .PUT(HttpRequest.BodyPublishers.ofString(body))
                             .header("Content-Type", "application/json")
 
@@ -221,7 +258,7 @@ class DataPenggunaController : Initializable {
             Thread {
                 try {
                     val builder = HttpRequest.newBuilder()
-                        .uri(URI.create("${clientController?.url}/api/pengguna/$id"))
+                        .uri(URI.create("${clientController?.url}/api/data-pengguna/$id"))
                         .DELETE()
 
                     clientController?.buildAuthHeader()?.let { builder.header("Authorization", it) }
@@ -248,7 +285,7 @@ class DataPenggunaController : Initializable {
             }.start()
         }
     }
-    fun loadData() {
+    fun loadDataPengguna() {
         if (clientController?.url.isNullOrBlank()) {
             Platform.runLater {
                 PesanPeringatan.error("Data Pengguna","URL server belum diset.")
@@ -270,9 +307,10 @@ class DataPenggunaController : Initializable {
                 val response = client.send(request, HttpResponse.BodyHandlers.ofString())
 
                 if (response.statusCode() in 200..299) {
-                    val list = json.decodeFromString<List<PenggunaDTO>>(response.body())
+                    val list = json.decodeFromString<List<DataPenggunaDTO>>(response.body())
+                    val sortedList = list.sortedBy { it.namaLengkap }
                     Platform.runLater {
-                        tblPengguna.items = FXCollections.observableArrayList(list)
+                        tblPengguna.items = FXCollections.observableArrayList(sortedList)
                     }
                 } else {
                     Platform.runLater {
@@ -286,60 +324,63 @@ class DataPenggunaController : Initializable {
             }
         }.start()
     }
-    fun cariPenggunaByNamaAkun(namaAkun: String) {
-        if (clientController?.url.isNullOrBlank()) {
+    fun loadLevel() {
+        val baseUrl = clientController?.url
+        if (baseUrl.isNullOrBlank()) {
             Platform.runLater {
-                PesanPeringatan.error("Data Pengguna", "URL server belum di set")
+                PesanPeringatan.error("Data Level", "URL server belum diset.")
             }
             return
         }
 
         Thread {
             try {
-                // 🔹 Encode namaAkun agar URL valid, ganti + menjadi %20 supaya lebih rapi
-                val encodedNamaAkun = URLEncoder.encode(namaAkun, StandardCharsets.UTF_8.toString())
-                    .replace("+", "%20")
-                val builder = HttpRequest.newBuilder()
-                    .uri(URI.create("${clientController?.url}/api/pengguna/cari?namaAkun=$encodedNamaAkun"))
+                val request = HttpRequest.newBuilder()
+                    .uri(URI.create("$baseUrl/api/data-level"))
                     .GET()
                     .header("Content-Type", "application/json")
+                    .apply {
+                        clientController?.buildAuthHeader()?.let { header("Authorization", it) }
+                    }
+                    .build()
 
-                // Tambahkan header Authorization jika ada
-                clientController?.buildAuthHeader()?.let {
-                    builder.header("Authorization", it)
-                }
-
-                val request = builder.build()
                 val response = client.send(request, HttpResponse.BodyHandlers.ofString())
 
-                Platform.runLater {
-                    if (response.statusCode() == 200) {
-                        // Response 200 pasti berisi satu PenggunaDTO
-                        val pengguna = json.decodeFromString<List<PenggunaDTO>>(response.body())
-                        tblPengguna.items = FXCollections.observableArrayList(pengguna)
-                    } else if (response.statusCode() == 404) {
-                        tblPengguna.items.clear()
-                        PesanPeringatan.error("Data Pengguna", "Pengguna tidak ditemukan.")
-                    } else {
-                        PesanPeringatan.error("Data Pengguna", "Server error ${response.statusCode()}")
+                if (response.statusCode() in 200..299) {
+                    val list = json.decodeFromString<List<DataLevelDTO>>(response.body())
+                    val sortedList = list.sortedBy { it.level }
+
+                    Platform.runLater {
+                        cboLevel.items = FXCollections.observableArrayList(sortedList)
+                    }
+
+                } else {
+                    Platform.runLater {
+                        PesanPeringatan.error("Load Level", "Server error ${response.statusCode()}")
                     }
                 }
+
             } catch (ex: Exception) {
                 Platform.runLater {
-                    PesanPeringatan.error("Data Pengguna", ex.message ?: "Gagal mencari pengguna")
+                    PesanPeringatan.error("Load Level", ex.message ?: "Gagal memuat data level")
                 }
             }
         }.start()
     }
-    fun penggunaTerpilih(dto: PenggunaDTO){
+    fun penggunaTerpilih(dto: DataPenggunaDTO){
         txtNamaPengguna.text = dto.namaLengkap
-        txtNamaAkun.text = dto.namaAkun
+        txtNamaAkun.text = dto.namaPengguna
+        chkStatus.isSelected = dto.status
+        cboLevel.selectionModel.select(dto.dataLevel)
         txtPassword.clear()
         txtUlangPassword.clear()
         btnSimpan.text = "Ubah"
     }
-    fun getPenggunaTerpilih(): PenggunaDTO? {
+    fun getPenggunaTerpilih(): DataPenggunaDTO? {
         return tblPengguna.selectionModel.selectedItem
+    }
+    fun getLevelTerpilih(): DataLevelDTO? {
+        return cboLevel.selectionModel.selectedItem
     }
 
 }

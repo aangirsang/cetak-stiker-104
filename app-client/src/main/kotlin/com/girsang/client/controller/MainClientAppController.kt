@@ -2,6 +2,8 @@ package com.girsang.client.controller
 
 import client.util.PesanPeringatan
 import com.girsang.client.config.ClientConfig
+import com.girsang.client.dto.DataPenggunaDTO
+import com.girsang.client.util.SessionClient
 import javafx.application.Platform
 import javafx.fxml.FXML
 import javafx.fxml.FXMLLoader
@@ -10,6 +12,7 @@ import javafx.scene.Scene
 import javafx.scene.control.Alert
 import javafx.scene.layout.BorderPane
 import javafx.scene.control.Label
+import javafx.scene.control.MenuBar
 import javafx.scene.control.MenuItem
 import javafx.scene.layout.AnchorPane
 import javafx.stage.Stage
@@ -33,10 +36,14 @@ class MainClientAppController : Initializable {
     @FXML lateinit var lblWaktu: Label
     @FXML private lateinit var lblStatusServer: Label
     @FXML private lateinit var lblURL: Label
+    @FXML private lateinit var lblNamaPengguna: Label
+
+    @FXML private lateinit var menuBar: MenuBar
     @FXML private lateinit var mnPengguna: MenuItem
     @FXML private lateinit var mnKategori: MenuItem
     @FXML private lateinit var mnLevel: MenuItem
     @FXML private lateinit var mnPengaturan: MenuItem
+    @FXML private lateinit var mnLogOut: MenuItem
     @FXML private lateinit var mnUMKM: MenuItem
     @FXML private lateinit var mnDataStiker: MenuItem
     @FXML private lateinit var mnOrderStiker: MenuItem
@@ -53,6 +60,7 @@ class MainClientAppController : Initializable {
         mnKategori.setOnAction { tampilFormKategori() }
         mnLevel.setOnAction { tampilFormLevel() }
         mnPengaturan.setOnAction { tampilSettings() }
+        mnLogOut.setOnAction { logout() }
 //        mnUMKM.setOnAction { tampilFormUMKM() }
 //        mnDataStiker.setOnAction { tampilFormStiker() }
 //        mnOrderStiker.setOnAction { tampilOrdertiker() }
@@ -62,10 +70,11 @@ class MainClientAppController : Initializable {
         } else {
             konekServer(baseUrl)
         }
+        logout()
     }
 
     private fun tampilFormPengguna() {
-        val fxmlLoader = FXMLLoader(javaClass.getResource("/fxml/data-pengguna.fxml"))
+        val fxmlLoader = FXMLLoader(javaClass.getResource("/fxml/form-data-pengguna.fxml"))
         val content: AnchorPane = fxmlLoader.load()
         val controller = fxmlLoader.getController<DataPenggunaController>()
         controller.setClientController(this)  // kirim parent controller
@@ -73,7 +82,7 @@ class MainClientAppController : Initializable {
         mainPane.center = content
     }
     private fun tampilFormKategori() {
-        val fxmlLoader = FXMLLoader(javaClass.getResource("/fxml/data-kategori.fxml"))
+        val fxmlLoader = FXMLLoader(javaClass.getResource("/fxml/form-data-kategori.fxml"))
         val content: AnchorPane = fxmlLoader.load()
         val controller = fxmlLoader.getController<DataKategoriController>()
         controller.setClientController(this)  // kirim parent controller
@@ -81,9 +90,17 @@ class MainClientAppController : Initializable {
         mainPane.center = content
     }
     private fun tampilFormLevel() {
-        val fxmlLoader = FXMLLoader(javaClass.getResource("/fxml/data-level.fxml"))
+        val fxmlLoader = FXMLLoader(javaClass.getResource("/fxml/form-data-level.fxml"))
         val content: AnchorPane = fxmlLoader.load()
         val controller = fxmlLoader.getController<DataLevelController>()
+        controller.setClientController(this)  // kirim parent controller
+        controller.setParentController(this)     // sudah ada ✅
+        mainPane.center = content
+    }
+    private fun tampilFormLogin() {
+        val fxmlLoader = FXMLLoader(javaClass.getResource("/fxml/form-login.fxml"))
+        val content: AnchorPane = fxmlLoader.load()
+        val controller = fxmlLoader.getController<LoginController>()
         controller.setClientController(this)  // kirim parent controller
         controller.setParentController(this)     // sudah ada ✅
         mainPane.center = content
@@ -116,6 +133,19 @@ class MainClientAppController : Initializable {
         mainPane.center = null
     }
 
+    fun loginBerhasil() {
+        println("login berhasil")
+        val pengguna = SessionClient.penggunaLogin
+        lblNamaPengguna.text = "Nama Pengguna: ${pengguna?.namaLengkap}"
+        menuBar.isDisable = false
+    }
+    fun logout(){
+        tutupForm()
+        lblNamaPengguna.text = "Belum Ada Data Login"
+        menuBar.isDisable = true
+        tampilFormLogin()
+        SessionClient.penggunaLogin = null
+    }
     fun konekServer(baseUrl: String){
         lblStatusServer.text = "Mencoba terhubung ke server…"
         println("Server: $url/api/data-pengguna/ping")
@@ -202,7 +232,7 @@ class MainClientAppController : Initializable {
     }
     private fun tampilSettings() {
         val stage = Stage()
-        val loader = FXMLLoader(javaClass.getResource("/fxml/settings.fxml"))
+        val loader = FXMLLoader(javaClass.getResource("/fxml/form-settings.fxml"))
         stage.scene = Scene(loader.load())
         stage.title = "Pengaturan Koneksi"
         stage.show()

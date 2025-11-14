@@ -1,5 +1,6 @@
 package com.girsang.server.model.entity
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import jakarta.persistence.*
 import jakarta.validation.constraints.*
 
@@ -17,12 +18,12 @@ data class DataPengguna(
     var namaPengguna: String = "",
 
     @field:NotBlank(message = "Kata sandi tidak boleh kosong")
-    @field:Size(min = 6, message = "Kata sandi minimal 6 karakter")
     @Column(nullable = false)
     var kataSandi: String = "",
 
-    @field:NotBlank(message = "Level tidak boleh kosong")
-    var level: String = "",
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "data_level_id")
+    var dataLevel: DataLevel,
 
     var status: Boolean = true
 )

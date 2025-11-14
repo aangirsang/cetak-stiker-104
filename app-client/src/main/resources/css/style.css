@@ -6,3 +6,62 @@
     -fx-border-style: solid;       /* jenis garis solid */
     -fx-background-color: #f4f4f4;
 }
+/* ==== TABLE VIEW ==== */
+.table-view {
+    -fx-background-color: white;
+    -fx-border-color: #d1d5db;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 6, 0, 0, 3);
+}
+
+.table-view .column-header {
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-text-fill: white;
+    -fx-alignment: CENTER;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header .label {
+    -fx-padding: 8 0 8 0;
+}
+
+/* Warna kolom header gradasi */
+.table-view .column-header-background .nested-column-header {
+    -fx-background-color: linear-gradient(to bottom, #64748b, #475569);
+}
+.table-view .column-header:nth-child(2) .label {
+    -fx-background-color: linear-gradient(to bottom, #a78bfa, #8b5cf6);
+}
+.table-view .column-header:nth-child(3) .label {
+    -fx-background-color: linear-gradient(to bottom, #60a5fa, #3b82f6);
+}
+.table-view .column-header:nth-child(4) .label {
+    -fx-background-color: linear-gradient(to bottom, #38bdf8, #0ea5e9);
+}
+.table-view .column-header:nth-child(5) .label {
+    -fx-background-color: linear-gradient(to bottom, #5eead4, #14b8a6);
+}
+
+/* Cell */
+.table-cell {
+    -fx-alignment: TOP-LEFT;          /* teks di pojok kiri atas */
+    -fx-wrap-text: true;              /* aktifkan wrap */
+    -fx-padding: 6px 10px;
+    -fx-border-color: transparent transparent #e5e7eb transparent;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #f9fafb;
+}
+.table-row-cell:even {
+    -fx-background-color: #ffffff;
+}
+.table-row-cell:selected {
+    -fx-background-color: #3b82f6;
+    -fx-text-fill: white;
+}

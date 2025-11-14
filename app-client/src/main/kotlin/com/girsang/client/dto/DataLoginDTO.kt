@@ -3,7 +3,7 @@ package com.girsang.client.dto
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class LevelDTO(
-    val id: Long? = null,
-    val level: String
+class DataLoginDTO (
+    val namaPengguna: String,
+    val kataSandi: String
 )

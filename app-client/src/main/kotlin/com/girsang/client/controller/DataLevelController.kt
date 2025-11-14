@@ -1,7 +1,7 @@
 package com.girsang.client.controller
 
 import client.util.PesanPeringatan
-import com.girsang.client.dto.LevelDTO
+import com.girsang.client.dto.DataLevelDTO
 import javafx.application.Platform
 import javafx.collections.FXCollections
 import javafx.fxml.FXML
@@ -34,7 +34,7 @@ class DataLevelController : Initializable{
     @FXML private lateinit var btnHapus: Button
     @FXML private lateinit var btnRefresh: Button
     @FXML private lateinit var btnTutup: Button
-    @FXML private lateinit var listLevel: ListView<LevelDTO>
+    @FXML private lateinit var listLevel: ListView<DataLevelDTO>
 
     override fun initialize(p0: URL?, p1: ResourceBundle?) {
 
@@ -44,8 +44,8 @@ class DataLevelController : Initializable{
         btnHapus.setOnAction { hapusData() }
 
         listLevel.setCellFactory {
-            object : ListCell<LevelDTO>() {
-                override fun updateItem(item: LevelDTO?, empty: Boolean) {
+            object : ListCell<DataLevelDTO>() {
+                override fun updateItem(item: DataLevelDTO?, empty: Boolean) {
                     super.updateItem(item, empty)
                     text = if (empty || item == null) "" else item.level
                 }
@@ -105,10 +105,11 @@ class DataLevelController : Initializable{
                 if (response.statusCode() in 200..299) {
 
                     // Decode JSON → List<LevelDTO>
-                    val list = json.decodeFromString<List<LevelDTO>>(response.body())
+                    val list = json.decodeFromString<List<DataLevelDTO>>(response.body())
+                    val sortedList = list.sortedBy { it.level }
 
                     Platform.runLater {
-                        listLevel.items = FXCollections.observableArrayList(list)
+                        listLevel.items = FXCollections.observableArrayList(sortedList)
                     }
 
                 } else {
@@ -127,10 +128,10 @@ class DataLevelController : Initializable{
     fun tutup() {
         parentController?.tutupForm()
     }
-    fun getLevelTerpilih(): LevelDTO? {
+    fun getLevelTerpilih(): DataLevelDTO? {
         return listLevel.selectionModel.selectedItem
     }
-    fun levelTerpilih(dto: LevelDTO){
+    fun levelTerpilih(dto: DataLevelDTO){
         txtLevel.text = dto.level
         btnSimpan.text = "Ubah"
     }
@@ -145,7 +146,7 @@ class DataLevelController : Initializable{
 
             Thread {
                 try {
-                    val dto = LevelDTO(level = level)
+                    val dto = DataLevelDTO(level = level)
                     val body = json.encodeToString(dto)
                     val builder = HttpRequest.newBuilder()
                         .uri(URI.create("${clientController?.url}/api/data-level"))
@@ -193,7 +194,7 @@ class DataLevelController : Initializable{
                 Thread {
                     try {
                         val dto =
-                            LevelDTO(id = id, level = level)
+                            DataLevelDTO(id = id, level = level)
                         val body = json.encodeToString(dto)
                         val builder = HttpRequest.newBuilder()
                             .uri(URI.create("${clientController?.url}/api/data-level/${id}"))

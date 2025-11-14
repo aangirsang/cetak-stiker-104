@@ -1,7 +1,7 @@
 package com.girsang.client.controller
 
 import client.util.PesanPeringatan
-import com.girsang.client.dto.KategoriDTO
+import com.girsang.client.dto.DataKategoriDTO
 import javafx.application.Platform
 import javafx.collections.FXCollections
 import javafx.fxml.FXML
@@ -33,7 +33,7 @@ class DataKategoriController : Initializable{
     @FXML private lateinit var btnHapus: Button
     @FXML private lateinit var btnRefresh: Button
     @FXML private lateinit var btnTutup: Button
-    @FXML private lateinit var listKategori: ListView<KategoriDTO>
+    @FXML private lateinit var listKategori: ListView<DataKategoriDTO>
 
     override fun initialize(p0: URL?, p1: ResourceBundle?) {
 
@@ -43,8 +43,8 @@ class DataKategoriController : Initializable{
         btnHapus.setOnAction { hapusData() }
 
         listKategori.setCellFactory {
-            object : javafx.scene.control.ListCell<KategoriDTO>() {
-                override fun updateItem(item: KategoriDTO?, empty: Boolean) {
+            object : javafx.scene.control.ListCell<DataKategoriDTO>() {
+                override fun updateItem(item: DataKategoriDTO?, empty: Boolean) {
                     super.updateItem(item, empty)
                     text = if (empty || item == null) "" else item.kategori
                 }
@@ -104,10 +104,11 @@ class DataKategoriController : Initializable{
                 if (response.statusCode() in 200..299) {
 
                     // Decode JSON → List<KategoriDTO>
-                    val list = json.decodeFromString<List<KategoriDTO>>(response.body())
+                    val list = json.decodeFromString<List<DataKategoriDTO>>(response.body())
+                    val sortedList = list.sortedBy { it.kategori }
 
                     Platform.runLater {
-                        listKategori.items = FXCollections.observableArrayList(list)
+                        listKategori.items = FXCollections.observableArrayList(sortedList)
                     }
 
                 } else {
@@ -126,10 +127,10 @@ class DataKategoriController : Initializable{
     fun tutup() {
         parentController?.tutupForm()
     }
-    fun getKategoriTerpilih(): KategoriDTO? {
+    fun getKategoriTerpilih(): DataKategoriDTO? {
         return listKategori.selectionModel.selectedItem
     }
-    fun kategoriTerpilih(dto: KategoriDTO){
+    fun kategoriTerpilih(dto: DataKategoriDTO){
         txtKategori.text = dto.kategori
         btnSimpan.text = "Ubah"
     }
@@ -144,7 +145,7 @@ class DataKategoriController : Initializable{
 
             Thread {
                 try {
-                    val dto = KategoriDTO(kategori = kategori)
+                    val dto = DataKategoriDTO(kategori = kategori)
                     val body = json.encodeToString(dto)
                     val builder = HttpRequest.newBuilder()
                         .uri(URI.create("${clientController?.url}/api/data-kategori"))
@@ -192,7 +193,7 @@ class DataKategoriController : Initializable{
                 Thread {
                     try {
                         val dto =
-                            KategoriDTO(id = id, kategori = kategori)
+                            DataKategoriDTO(id = id, kategori = kategori)
                         val body = json.encodeToString(dto)
                         val builder = HttpRequest.newBuilder()
                             .uri(URI.create("${clientController?.url}/api/data-kategori/${id}"))

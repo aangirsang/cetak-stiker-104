@@ -11,14 +11,23 @@ class DataPenggunaService(private val repo: DataPenggunaRepository) {
     fun semuaPengguna(): List<DataPengguna> = repo.findAll()
     fun cariID(id: Long): Optional<DataPengguna> = repo.findById(id)
 
-    fun simpan(dataPengguna: DataPengguna): DataPengguna = repo.save(dataPengguna)
+    fun simpan(dataPengguna: DataPengguna): DataPengguna {
+        if (repo.existsByNamaPengguna(dataPengguna.namaPengguna)) {
+            throw IllegalArgumentException("Nama pengguna sudah digunakan")
+        }
+        return repo.save(dataPengguna)
+    }
     fun update(id: Long, dataPengguna: DataPengguna): DataPengguna{
         val dataLama = repo.findById(id).orElseThrow { throw NoSuchElementException("Data pengguna dengan id $id tidak ditemukan") }
         dataLama.namaLengkap = dataPengguna.namaLengkap
         dataLama.namaPengguna = dataPengguna.namaPengguna
         dataLama.kataSandi = dataPengguna.kataSandi
-        dataLama.level = dataPengguna.level
+        dataLama.dataLevel = dataPengguna.dataLevel
         dataLama.status = dataPengguna.status
+
+        if (repo.existsByNamaPenggunaAndIdNot(dataPengguna.namaPengguna, dataPengguna.id)) {
+            throw IllegalArgumentException("Nama pengguna sudah digunakan")
+        }
 
         return repo.save(dataLama)
     }
@@ -30,13 +39,18 @@ class DataPenggunaService(private val repo: DataPenggunaRepository) {
         }
     }
     // 🔐 Fungsi Login
-    fun login(namaPengguna: String, kataSandi: String): DataPengguna {
+    fun login(namaPengguna: String, kataSandi: String): DataPengguna? {
         val pengguna = repo.findByNamaPengguna(namaPengguna)
-            ?: throw NoSuchElementException("Pengguna dengan nama '$namaPengguna' tidak ditemukan")
 
-        if (pengguna.kataSandi != kataSandi) throw IllegalArgumentException("Kata sandi salah")
+        // Jika username tidak ditemukan
+        if (pengguna == null) {
+            return null
+        }
 
-        if (!pengguna.status) throw IllegalStateException("Akun tidak aktif")
+        // Jika password tidak cocok
+        if (pengguna.kataSandi != kataSandi) {
+            return null
+        }
 
         return pengguna
     }
