@@ -675,3 +675,82 @@ Caused by: org.springframework.data.mapping.PropertyReferenceException: No prope
 2025-11-14 10:17:32 INFO  [JavaFX Application Thread] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-11-14 10:17:32 INFO  [JavaFX Application Thread] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2025-11-14 10:17:32 INFO  [JavaFX Application Thread] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-11-14 10:59:05 INFO  [background-preinit] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+2025-11-14 10:59:05 INFO  [DefaultDispatcher-worker-1] o.s.boot.SpringApplication - Starting application using Java 21.0.8 with PID 16468 (started by User in D:\Andri\Belajar\Bahasa Pemrograman\Project\cetak-stiker-104)
+2025-11-14 10:59:05 INFO  [DefaultDispatcher-worker-1] o.s.boot.SpringApplication - The following 1 profile is active: "dev"
+2025-11-14 10:59:08 INFO  [DefaultDispatcher-worker-1] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-14 10:59:08 INFO  [DefaultDispatcher-worker-1] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 131 ms. Found 6 JPA repository interfaces.
+2025-11-14 10:59:10 INFO  [DefaultDispatcher-worker-1] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-11-14 10:59:11 INFO  [DefaultDispatcher-worker-1] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-11-14 10:59:11 INFO  [DefaultDispatcher-worker-1] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-11-14 10:59:11 INFO  [DefaultDispatcher-worker-1] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-11-14 10:59:11 INFO  [DefaultDispatcher-worker-1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-11-14 10:59:11 INFO  [DefaultDispatcher-worker-1] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 5978 ms
+2025-11-14 10:59:12 INFO  [DefaultDispatcher-worker-1] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-14 10:59:12 INFO  [DefaultDispatcher-worker-1] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.29.Final
+2025-11-14 10:59:12 INFO  [DefaultDispatcher-worker-1] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-11-14 10:59:13 INFO  [DefaultDispatcher-worker-1] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-14 10:59:13 INFO  [DefaultDispatcher-worker-1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-11-14 10:59:14 INFO  [DefaultDispatcher-worker-1] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@56f9773e
+2025-11-14 10:59:14 INFO  [DefaultDispatcher-worker-1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-11-14 10:59:14 INFO  [DefaultDispatcher-worker-1] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 3.46
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-11-14 10:59:16 INFO  [DefaultDispatcher-worker-1] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-14 10:59:16 INFO  [DefaultDispatcher-worker-1] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-14 10:59:17 INFO  [DefaultDispatcher-worker-1] o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-11-14 10:59:20 INFO  [DefaultDispatcher-worker-1] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2025-11-14 10:59:21 INFO  [DefaultDispatcher-worker-1] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-11-14 10:59:21 INFO  [DefaultDispatcher-worker-1] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-11-14 10:59:21 INFO  [DefaultDispatcher-worker-1] o.s.boot.SpringApplication - Started application in 17.935 seconds (process running for 23.355)
+2025-11-14 10:59:27 INFO  [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-14 10:59:27 INFO  [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-11-14 10:59:27 INFO  [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-11-14 11:04:53 INFO  [JavaFX Application Thread] o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-11-14 11:04:53 INFO  [tomcat-shutdown] o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2025-11-14 11:04:53 INFO  [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-11-14 11:04:53 INFO  [JavaFX Application Thread] o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2025-11-14 11:04:53 INFO  [JavaFX Application Thread] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-14 11:04:53 INFO  [JavaFX Application Thread] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-11-14 11:04:53 INFO  [JavaFX Application Thread] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-11-14 11:05:54 INFO  [background-preinit] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+2025-11-14 11:05:54 INFO  [DefaultDispatcher-worker-1] o.s.boot.SpringApplication - Starting application using Java 21.0.8 with PID 1200 (started by User in D:\Andri\Belajar\Bahasa Pemrograman\Project\cetak-stiker-104)
+2025-11-14 11:05:54 INFO  [DefaultDispatcher-worker-1] o.s.boot.SpringApplication - The following 1 profile is active: "dev"
+2025-11-14 11:05:56 INFO  [DefaultDispatcher-worker-1] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-14 11:05:56 INFO  [DefaultDispatcher-worker-1] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 93 ms. Found 6 JPA repository interfaces.
+2025-11-14 11:05:56 INFO  [DefaultDispatcher-worker-1] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-11-14 11:05:57 INFO  [DefaultDispatcher-worker-1] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-11-14 11:05:57 INFO  [DefaultDispatcher-worker-1] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-11-14 11:05:57 INFO  [DefaultDispatcher-worker-1] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-11-14 11:05:57 INFO  [DefaultDispatcher-worker-1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-11-14 11:05:57 INFO  [DefaultDispatcher-worker-1] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2390 ms
+2025-11-14 11:05:57 INFO  [DefaultDispatcher-worker-1] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-14 11:05:57 INFO  [DefaultDispatcher-worker-1] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.29.Final
+2025-11-14 11:05:57 INFO  [DefaultDispatcher-worker-1] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-11-14 11:05:58 INFO  [DefaultDispatcher-worker-1] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-14 11:05:58 INFO  [DefaultDispatcher-worker-1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-11-14 11:05:58 INFO  [DefaultDispatcher-worker-1] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@2041149a
+2025-11-14 11:05:58 INFO  [DefaultDispatcher-worker-1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-11-14 11:05:58 INFO  [DefaultDispatcher-worker-1] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 3.46
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-11-14 11:05:59 INFO  [DefaultDispatcher-worker-1] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-14 11:06:00 INFO  [DefaultDispatcher-worker-1] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-14 11:06:00 INFO  [DefaultDispatcher-worker-1] o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-11-14 11:06:02 INFO  [DefaultDispatcher-worker-1] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2025-11-14 11:06:03 INFO  [DefaultDispatcher-worker-1] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-11-14 11:06:03 INFO  [DefaultDispatcher-worker-1] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-11-14 11:06:03 INFO  [DefaultDispatcher-worker-1] o.s.boot.SpringApplication - Started application in 9.726 seconds (process running for 13.177)
+2025-11-14 11:06:08 INFO  [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-14 11:06:08 INFO  [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-11-14 11:06:08 INFO  [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms

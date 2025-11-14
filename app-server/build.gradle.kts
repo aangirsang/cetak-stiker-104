@@ -7,8 +7,8 @@ plugins {
     id("org.openjfx.javafxplugin") version "0.1.0"
 }
 group = "com.girsang"
-version = "0.0.1-SNAPSHOT"
-description = "Demo project for Spring Boot + JavaFX"
+version = "1.0.4"
+description = "Aplikasi Cetak Stiker Rumah BUMN Batubara"
 
 java {
     toolchain {

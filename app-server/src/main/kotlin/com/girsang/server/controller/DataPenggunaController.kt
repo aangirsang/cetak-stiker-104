@@ -63,6 +63,6 @@ class DataPenggunaController(private val service: DataPenggunaService) {
 
     @GetMapping("/ping")
     fun ping(): ResponseEntity<Map<String, String>>{
-    return ResponseEntity.ok(mapOf("status" to "ok"))
+    return ResponseEntity.ok(mapOf("Status Server " to "Terhubung"))
     }
 }
