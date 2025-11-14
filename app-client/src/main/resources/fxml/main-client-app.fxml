@@ -14,7 +14,9 @@
          <menus>
             <Menu text="Master">
                <items>
-                  <MenuItem fx:id="mnPengguna" text="Pengguna" />
+                  <MenuItem fx:id="mnPengguna" text="Data Pengguna Aplikasi" />
+                  <MenuItem fx:id="mnKategori" mnemonicParsing="false" text="Data Kategori UMKM" />
+                  <MenuItem fx:id="mnLevel" mnemonicParsing="false" text="Data Level Pengguna" />
                   <MenuItem fx:id="mnPengaturan" mnemonicParsing="false" text="Pengaturan Client" />
                </items>
             </Menu>

@@ -34,6 +34,8 @@ class MainClientAppController : Initializable {
     @FXML private lateinit var lblStatusServer: Label
     @FXML private lateinit var lblURL: Label
     @FXML private lateinit var mnPengguna: MenuItem
+    @FXML private lateinit var mnKategori: MenuItem
+    @FXML private lateinit var mnLevel: MenuItem
     @FXML private lateinit var mnPengaturan: MenuItem
     @FXML private lateinit var mnUMKM: MenuItem
     @FXML private lateinit var mnDataStiker: MenuItem
@@ -48,6 +50,8 @@ class MainClientAppController : Initializable {
 
     override fun initialize(location: URL?, resources: ResourceBundle?) {
         mnPengguna.setOnAction { tampilFormPengguna() }
+        mnKategori.setOnAction { tampilFormKategori() }
+        mnLevel.setOnAction { tampilFormLevel() }
         mnPengaturan.setOnAction { tampilSettings() }
 //        mnUMKM.setOnAction { tampilFormUMKM() }
 //        mnDataStiker.setOnAction { tampilFormStiker() }
@@ -64,6 +68,22 @@ class MainClientAppController : Initializable {
         val fxmlLoader = FXMLLoader(javaClass.getResource("/fxml/data-pengguna.fxml"))
         val content: AnchorPane = fxmlLoader.load()
         val controller = fxmlLoader.getController<DataPenggunaController>()
+        controller.setClientController(this)  // kirim parent controller
+        controller.setParentController(this)     // sudah ada ✅
+        mainPane.center = content
+    }
+    private fun tampilFormKategori() {
+        val fxmlLoader = FXMLLoader(javaClass.getResource("/fxml/data-kategori.fxml"))
+        val content: AnchorPane = fxmlLoader.load()
+        val controller = fxmlLoader.getController<DataKategoriController>()
+        controller.setClientController(this)  // kirim parent controller
+        controller.setParentController(this)     // sudah ada ✅
+        mainPane.center = content
+    }
+    private fun tampilFormLevel() {
+        val fxmlLoader = FXMLLoader(javaClass.getResource("/fxml/data-level.fxml"))
+        val content: AnchorPane = fxmlLoader.load()
+        val controller = fxmlLoader.getController<DataLevelController>()
         controller.setClientController(this)  // kirim parent controller
         controller.setParentController(this)     // sudah ada ✅
         mainPane.center = content

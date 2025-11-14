@@ -12,43 +12,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="765.0" prefWidth="1313.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.girsang.client.controller.DataPenggunaController">
+<AnchorPane prefHeight="765.0" prefWidth="1313.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.girsang.client.controller.DataPenggunaController">
    <children>
       <TitledPane collapsible="false" prefHeight="485.0" prefWidth="600.0" text="Data Pengguna" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <content>
-            <Pane prefHeight="667.0" prefWidth="471.0">
-                <children>
-                  <Pane layoutX="15.0" layoutY="327.0" prefHeight="97.0" prefWidth="441.0" style="-fx-border-color: #BABABA;      /* warna garis border */                         -fx-border-width: 1.3;           /* ketebalan border */                         -fx-border-radius: 8;         /* sudut border melengkung */                         -fx-background-radius: 8;     /* sudut background melengkung */                         -fx-border-style: solid;       /* jenis garis solid */                         -fx-background-color: #f4f4f4;">
-                     <children>
-                         <HBox alignment="CENTER" layoutX="-2.0" prefHeight="96.0" prefWidth="409.0">
-                             <!-- Bagian 1 -->
-                             <StackPane HBox.hgrow="ALWAYS">
-                              <children>
-                                 <Button fx:id="btnSimpan" mnemonicParsing="false" prefHeight="54.0" prefWidth="75.0" text="Simpan" />
-                              </children>
-                             </StackPane>
-                           <StackPane HBox.hgrow="ALWAYS">
-                              <children>
-                                 <Button fx:id="btnHapus" mnemonicParsing="false" prefHeight="54.0" prefWidth="75.0" text="Hapus" />
-                              </children>
-                           </StackPane>
-                           <StackPane HBox.hgrow="ALWAYS">
-                              <children>
-                                 <Button fx:id="btnRefresh" mnemonicParsing="false" prefHeight="54.0" prefWidth="75.0" text="Refresh" />
-                              </children>
-                           </StackPane>
-                           <StackPane HBox.hgrow="ALWAYS">
-                              <children>
-                                 <Button fx:id="btnTutup" mnemonicParsing="false" prefHeight="54.0" prefWidth="75.0" text="Tutup" />
-                              </children>
-                           </StackPane>
-                         </HBox>
-                     </children>
-                  </Pane>
-                  <TableView fx:id="tblPengguna" layoutX="474.0" layoutY="24.0" prefHeight="700.0" prefWidth="815.0">
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <TableView fx:id="tblPengguna" layoutX="471.0" layoutY="25.0" prefHeight="700.0" prefWidth="825.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="465.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                     <columns>
                         <TableColumn fx:id="colId" prefWidth="60" text="ID" />
                         <TableColumn fx:id="colNama" prefWidth="241.0" text="Nama Lengkap" />
@@ -57,7 +29,7 @@
                         <TableColumn prefWidth="116.0" text="Status" />
                     </columns>
                   </TableView>
-                  <Pane layoutX="15.0" layoutY="14.0" prefHeight="297.0" prefWidth="434.0" style="-fx-border-color: #BABABA;      /* warna garis border */                         -fx-border-width: 1.3;           /* ketebalan border */                         -fx-border-radius: 8;         /* sudut border melengkung */                         -fx-background-radius: 8;     /* sudut background melengkung */                         -fx-border-style: solid;       /* jenis garis solid */                         -fx-background-color: #f4f4f4;">
+                  <Pane layoutX="14.0" layoutY="25.0" prefHeight="297.0" prefWidth="434.0" styleClass="custom-border" stylesheets="@../css/style.css" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
                      <children>
                         <Label layoutX="14.0" layoutY="65.0" text="Nama Lengkap">
                            <padding>
@@ -106,8 +78,16 @@
                         </Label>
                         </children>
                   </Pane>
-                </children>
-            </Pane>
+                  <HBox alignment="CENTER" layoutX="20.0" layoutY="337.0" prefHeight="100.0" prefWidth="434.0" spacing="20.0" styleClass="custom-border" stylesheets="@../css/style.css" AnchorPane.leftAnchor="10.0">
+                     <children>
+                        <Button fx:id="btnSimpan" mnemonicParsing="false" prefHeight="54.0" prefWidth="75.0" text="Simpan" />
+                        <Button fx:id="btnHapus" mnemonicParsing="false" prefHeight="54.0" prefWidth="75.0" text="Hapus" />
+                        <Button fx:id="btnRefresh" mnemonicParsing="false" prefHeight="54.0" prefWidth="75.0" text="Refresh" />
+                        <Button fx:id="btnTutup" mnemonicParsing="false" prefHeight="54.0" prefWidth="75.0" text="Tutup" />
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
          </content>
       </TitledPane>
    </children>
