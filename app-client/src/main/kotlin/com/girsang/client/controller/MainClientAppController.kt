@@ -61,7 +61,7 @@ class MainClientAppController : Initializable {
         mnLevel.setOnAction { tampilFormLevel() }
         mnPengaturan.setOnAction { tampilSettings() }
         mnLogOut.setOnAction { logout() }
-//        mnUMKM.setOnAction { tampilFormUMKM() }
+        mnUMKM.setOnAction { tampilFormUMKM() }
 //        mnDataStiker.setOnAction { tampilFormStiker() }
 //        mnOrderStiker.setOnAction { tampilOrdertiker() }
         lblURL.text = ""
@@ -105,14 +105,15 @@ class MainClientAppController : Initializable {
         controller.setParentController(this)     // sudah ada ✅
         mainPane.center = content
     }
-//    private fun tampilFormUMKM() {
-//        val fxmlLoader = FXMLLoader(javaClass.getResource("/fxml/data-umkm.fxml"))
-//        val content: AnchorPane = fxmlLoader.load()
-//        val controller = fxmlLoader.getController<DataUmkmController>()
-//        controller.setClientController(this)  // kirim parent controller
-//        controller.setParentController(this)     // sudah ada ✅
-//        mainPane.center = content
-//    }
+
+    private fun tampilFormUMKM() {
+        val fxmlLoader = FXMLLoader(javaClass.getResource("/fxml/form-data-umkm.fxml"))
+        val content: AnchorPane = fxmlLoader.load()
+        val controller = fxmlLoader.getController<DataUmkmController>()
+        controller.setClientController(this)  // kirim parent controller
+        controller.setParentController(this)     // sudah ada ✅
+        mainPane.center = content
+    }
 //    private fun tampilFormStiker() {
 //        val fxmlLoader = FXMLLoader(javaClass.getResource("/fxml/data-stiker.fxml"))
 //        val content: AnchorPane = fxmlLoader.load()

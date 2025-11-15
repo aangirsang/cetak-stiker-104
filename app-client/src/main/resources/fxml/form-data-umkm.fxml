@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="880.0" prefWidth="1802.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.girsang.client.controller.DataUmkmController">
+   <children>
+      <TitledPane animated="false" collapsible="false" layoutX="-8.0" prefHeight="801.0" prefWidth="901.0" text="Data UMKM" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="877.0" prefWidth="1061.0" styleClass="card" stylesheets="@/css/style.css">
+               <children>
+                  <Pane layoutX="23.0" layoutY="20.0" maxWidth="1089.0" minWidth="463.0" prefHeight="576.0" prefWidth="463.0" styleClass="custom-border">
+                     <children>
+                        <TextField fx:id="txtNamaUsaha" layoutX="164.0" layoutY="67.0" prefHeight="25.0" prefWidth="236.0" />
+                        <TextField fx:id="txtNamaPemilik" layoutX="164.0" layoutY="104.0" prefHeight="25.0" prefWidth="269.0" />
+                        <TextField fx:id="txtNoKtp" layoutX="164.0" layoutY="141.0" prefHeight="25.0" prefWidth="210.0" />
+                        <TextField fx:id="txtEmail" layoutX="164.0" layoutY="178.0" prefHeight="25.0" prefWidth="210.0" />
+                        <DatePicker fx:id="dpTglLahir" layoutX="164.0" layoutY="215.0" prefHeight="25.0" prefWidth="210.0" />
+                        <TextArea fx:id="txtAlamat" layoutX="164.0" layoutY="252.0" prefHeight="112.0" prefWidth="268.0" />
+                        <ComboBox fx:id="cboKategoriUsaha" layoutX="164.0" layoutY="377.0" prefHeight="25.0" prefWidth="260.0" />
+                        <TextField fx:id="txtNoTelp" layoutX="164.0" layoutY="414.0" prefHeight="25.0" prefWidth="267.0" />
+                        <TextField fx:id="txtInstagram" layoutX="164.0" layoutY="451.0" prefHeight="25.0" prefWidth="267.0" />
+                        <TextField fx:id="txtFacebook" layoutX="164.0" layoutY="488.0" prefHeight="25.0" prefWidth="267.0" />
+                        <CheckBox fx:id="chkStatus" layoutX="164.0" layoutY="529.0" mnemonicParsing="false" text="Status" />
+                        <Label layoutX="17.0" layoutY="98.0" text="Nama Pemilik UMKM">
+                           <padding>
+                              <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
+                           </padding>
+                        </Label>
+                        <Label layoutX="17.0" layoutY="61.0" text="Nama UMKM">
+                           <padding>
+                              <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
+                           </padding>
+                        </Label>
+                        <Label layoutX="17.0" layoutY="408.0" text="No. Telepon/WhatsApp">
+                           <padding>
+                              <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
+                           </padding>
+                        </Label>
+                        <Label layoutX="17.0" layoutY="445.0" text="Instagram">
+                           <padding>
+                              <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
+                           </padding>
+                        </Label>
+                        <Label layoutX="17.0" layoutY="246.0" prefHeight="37.0" prefWidth="66.0" text="Alamat">
+                           <padding>
+                              <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
+                           </padding>
+                        </Label>
+                        <Label layoutX="17.0" layoutY="135.0" text="Nomor KTP">
+                           <padding>
+                              <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
+                           </padding>
+                        </Label>
+                        <Label layoutX="17.0" layoutY="172.0" text="Email">
+                           <padding>
+                              <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
+                           </padding>
+                        </Label>
+                        <Label layoutX="17.0" layoutY="209.0" text="Tanggal Lahir">
+                           <padding>
+                              <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
+                           </padding>
+                        </Label>
+                        <Label layoutX="17.0" layoutY="371.0" prefHeight="37.0" prefWidth="104.0" text="Kategori Usaha">
+                           <padding>
+                              <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
+                           </padding>
+                        </Label>
+                        <Label layoutX="17.0" layoutY="482.0" text="Facebook">
+                           <padding>
+                              <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
+                           </padding>
+                        </Label>
+                        <Label layoutX="17.0" layoutY="519.0" text="Status">
+                           <padding>
+                              <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
+                           </padding>
+                        </Label>
+                        <Label layoutX="12.0" layoutY="14.0" styleClass="title-label" text="Data UMKM">
+                           <padding>
+                              <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <HBox alignment="CENTER" layoutX="24.0" layoutY="610.0" prefHeight="105.0" prefWidth="462.0" spacing="30.0" styleClass="custom-border">
+                     <children>
+                        <Button fx:id="btnSimpan" mnemonicParsing="false" prefHeight="54.0" prefWidth="75.0" text="Simpan" />
+                        <Button fx:id="btnHapus" mnemonicParsing="false" prefHeight="54.0" prefWidth="75.0" text="Hapus" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="520.0" layoutY="30.0" prefHeight="105.0" prefWidth="989.0" spacing="30.0" style="-fx-border-color: #BABABA;      /* warna garis border */                         -fx-border-width: 1.3;           /* ketebalan border */                         -fx-border-radius: 8;         /* sudut border melengkung */                         -fx-background-radius: 8;     /* sudut background melengkung */                         -fx-border-style: solid;       /* jenis garis solid */                         -fx-background-color: #f4f4f4;" AnchorPane.leftAnchor="500.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="10.0">
+                     <children>
+                        <TextField fx:id="txtCariNamaPemilik" prefHeight="25.0" prefWidth="240.0" promptText="Cari Nama Pemilik" />
+                        <TextField fx:id="txtCariNamaUsaha" prefHeight="25.0" prefWidth="240.0" promptText="Cari Nama Usaha" />
+                        <TextField fx:id="txtCariAlamat" prefHeight="25.0" prefWidth="240.0" promptText="Cari Usaha" />
+                        <Button fx:id="btnRefresh" mnemonicParsing="false" prefHeight="54.0" prefWidth="75.0" text="Refresh" />
+                        <Button fx:id="btnTutup" mnemonicParsing="false" prefHeight="54.0" prefWidth="75.0" text="Tutup" />
+                     </children>
+                  </HBox>
+                  <TableView fx:id="tblUmkm" layoutX="520.0" layoutY="160.0" prefHeight="680.0" prefWidth="989.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="500.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="140.0">
+                    <columns>
+                      <TableColumn fx:id="kolNo" prefWidth="48.0" text="No." />
+                        <TableColumn fx:id="kolNamaUsaha" prefWidth="166.0" text="Nama Usaha" />
+                      <TableColumn fx:id="kolNamaPemilik" prefWidth="180.0" text="Nama Pemilik" />
+                        <TableColumn fx:id="kolKtp" prefWidth="75.0" text="No. KTP" />
+                        <TableColumn fx:id="kolTglLahir" prefWidth="75.0" text="Tanggal Lahir" />
+                        <TableColumn fx:id="kolEmail" prefWidth="75.0" text="Email" />
+                        <TableColumn fx:id="kolKontak" minWidth="0.0" prefWidth="150.0" text="Telepon" />
+                        <TableColumn fx:id="kolInstagram" prefWidth="111.0" text="Instagram" />
+                        <TableColumn fx:id="kolFacebook" maxWidth="1.7976931348623157E308" prefWidth="213.0" resizable="false" text="Facebook" />
+                        <TableColumn fx:id="kolStatus" prefWidth="75.0" text="Status" />
+                    </columns>
+                  </TableView>
+                  <Label fx:id="lblTotal" layoutX="520.0" layoutY="819.0" prefHeight="17.0" prefWidth="328.0" text="adasd" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="500.0">
+                     <font>
+                        <Font name="System Italic" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+        </content>
+      </TitledPane>
+   </children>
+</AnchorPane>

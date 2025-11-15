@@ -6,17 +6,15 @@ data class DataUMKMDTO(
     val id: Long = 0,
     var namaUmkm: String,
     var namaPemilikUmkm: String,
-    var noKTP: String,
+    var noKtp: String,
     var email: String,
     var tglLahir: Long,
     var alamat: String,
-    var kategoriUsaha: String,
+    var noTelpon: String,
+    var dataKategoriId: Long,
     var facebookNama: String? = "",
-    var facebookUrl: String? = "",
     var instagramNama: String? = "",
-    var instagramUrl: String? = "",
     var status: Boolean = true,
-    val daftarStiker: List<DataStikerDTO> = emptyList()
 ) {
     companion object {
         fun fromEntity(entity: DataUmkm): DataUMKMDTO {
@@ -24,36 +22,16 @@ data class DataUMKMDTO(
                 id = entity.id,
                 namaUmkm = entity.namaUmkm,
                 namaPemilikUmkm = entity.namaPemilikUmkm,
-                noKTP = entity.noKtp,
+                noKtp = entity.noKtp,
                 email = entity.email,
                 tglLahir = entity.tglLahir,
                 alamat = entity.alamat,
-                kategoriUsaha = entity.kategoriUsaha,
+                noTelpon = entity.noTelpon,
+                dataKategoriId = entity.dataKategori.id,
                 facebookNama = entity.facebookNama,
-                facebookUrl = entity.facebookUrl,
                 instagramNama = entity.instagramNama,
-                instagramUrl = entity.instagramUrl,
                 status = entity.status,
-                daftarStiker = entity.daftarStiker.map { DataStikerDTO.fromEntity(it) }
             )
         }
-    }
-
-    fun toEntity(): DataUmkm {
-        return DataUmkm(
-            id = this.id,
-            namaUmkm = this.namaUmkm,
-            namaPemilikUmkm = this.namaPemilikUmkm,
-            noKtp = this.noKTP,
-            email = this.email,
-            tglLahir = this.tglLahir,
-            alamat = this.alamat,
-            kategoriUsaha = this.kategoriUsaha,
-            facebookNama = this.facebookNama ?: "",
-            facebookUrl = this.facebookUrl ?: "",
-            instagramNama = this.instagramNama ?: "",
-            instagramUrl = this.instagramUrl ?: "",
-            status = this.status
-        )
     }
 }

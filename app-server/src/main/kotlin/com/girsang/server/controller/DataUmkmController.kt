@@ -21,12 +21,26 @@ class DataUmkmController(
         ResponseEntity.ok(service.cariById(id))
 
     @PostMapping
-    fun simpan(@Valid @RequestBody dto: DataUMKMDTO): ResponseEntity<DataUMKMDTO> =
-        ResponseEntity.ok(service.simpan(dto))
+    fun simpan(@Valid @RequestBody dto: DataUMKMDTO): ResponseEntity<Any> =
+        try {
+            val simpan = service.simpan(dto)
+            ResponseEntity.status(201).body(simpan)
+        } catch (e: IllegalArgumentException) {
+            ResponseEntity.badRequest().body(mapOf("message" to e.message))
+        } catch (e: NoSuchElementException) {
+            ResponseEntity.status(404).body(mapOf("message" to e.message))
+        }
 
     @PutMapping("/{id}")
-    fun ubah(@PathVariable id: Long, @Valid @RequestBody dto: DataUMKMDTO): ResponseEntity<DataUMKMDTO> =
-        ResponseEntity.ok(service.ubah(id, dto))
+    fun ubah(@PathVariable id: Long, @Valid @RequestBody dto: DataUMKMDTO): ResponseEntity<Any> =
+        try {
+            val simpan = service.ubah(id, dto)
+            ResponseEntity.status(201).body(simpan)
+        } catch (e: IllegalArgumentException) {
+            ResponseEntity.badRequest().body(mapOf("message" to e.message))
+        } catch (e: NoSuchElementException) {
+            ResponseEntity.status(404).body(mapOf("message" to e.message))
+        }
 
     @DeleteMapping("/{id}")
     fun hapus(@PathVariable id: Long): ResponseEntity<Unit> {

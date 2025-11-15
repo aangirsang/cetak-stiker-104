@@ -32,4 +32,21 @@ class GlobalExceptionHandler {
             )
     }
 
+    @ExceptionHandler(jakarta.validation.ConstraintViolationException::class)
+    fun handleConstraintViolation(ex: jakarta.validation.ConstraintViolationException): ResponseEntity<Map<String, Any>> {
+
+        val errors = ex.constraintViolations.associate {
+            (it.propertyPath.lastOrNull()?.name ?: "unknown") to it.message
+        }
+
+        return ResponseEntity
+            .badRequest()
+            .body(
+                mapOf(
+                    "status" to 400,
+                    "errors" to errors
+                )
+            )
+    }
+
 }

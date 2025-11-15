@@ -910,3 +910,330 @@
 2025-11-14 21:24:52 TRACE [http-nio-8080-exec-7] org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [ss]
 2025-11-14 21:27:19 DEBUG [http-nio-8080-exec-3] org.hibernate.SQL - select dp1_0.id,dp1_0.data_level_id,dp1_0.kata_sandi,dp1_0.nama_lengkap,dp1_0.nama_pengguna,dp1_0.status from data_pengguna dp1_0 where dp1_0.nama_pengguna=?
 2025-11-14 21:27:19 TRACE [http-nio-8080-exec-3] org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [s]
+2025-11-15 09:04:27 DEBUG [http-nio-8080-exec-2] org.hibernate.SQL - select dp1_0.id,dp1_0.data_level_id,dp1_0.kata_sandi,dp1_0.nama_lengkap,dp1_0.nama_pengguna,dp1_0.status from data_pengguna dp1_0 where dp1_0.nama_pengguna=?
+2025-11-15 09:04:27 TRACE [http-nio-8080-exec-2] org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [a]
+2025-11-15 09:04:27 DEBUG [http-nio-8080-exec-2] org.hibernate.SQL - select dl1_0.id,dl1_0.level from data_level dl1_0 where dl1_0.id=?
+2025-11-15 09:04:27 TRACE [http-nio-8080-exec-2] org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [2]
+2025-11-15 09:04:32 DEBUG [http-nio-8080-exec-3] org.hibernate.SQL - select dl1_0.id,dl1_0.level from data_level dl1_0
+2025-11-15 09:04:32 DEBUG [http-nio-8080-exec-6] org.hibernate.SQL - select dp1_0.id,dp1_0.data_level_id,dp1_0.kata_sandi,dp1_0.nama_lengkap,dp1_0.nama_pengguna,dp1_0.status from data_pengguna dp1_0
+2025-11-15 09:04:32 DEBUG [http-nio-8080-exec-6] org.hibernate.SQL - select dl1_0.id,dl1_0.level from data_level dl1_0 where dl1_0.id=?
+2025-11-15 09:04:32 TRACE [http-nio-8080-exec-6] org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [2]
+2025-11-15 09:04:32 DEBUG [http-nio-8080-exec-6] org.hibernate.SQL - select dl1_0.id,dl1_0.level from data_level dl1_0 where dl1_0.id=?
+2025-11-15 09:04:32 TRACE [http-nio-8080-exec-6] org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [1]
+2025-11-15 09:04:41 DEBUG [http-nio-8080-exec-4] org.hibernate.SQL - select dk1_0.id,dk1_0.kategori from data_kategori dk1_0
+2025-11-15 09:05:08 DEBUG [http-nio-8080-exec-10] org.hibernate.SQL - select dp1_0.id,dp1_0.data_level_id,dp1_0.kata_sandi,dp1_0.nama_lengkap,dp1_0.nama_pengguna,dp1_0.status from data_pengguna dp1_0 where dp1_0.nama_pengguna=?
+2025-11-15 09:05:08 TRACE [http-nio-8080-exec-10] org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [a]
+2025-11-15 09:05:08 DEBUG [http-nio-8080-exec-10] org.hibernate.SQL - select dl1_0.id,dl1_0.level from data_level dl1_0 where dl1_0.id=?
+2025-11-15 09:05:08 TRACE [http-nio-8080-exec-10] org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [2]
+2025-11-15 10:23:47 DEBUG [DefaultDispatcher-worker-1] org.hibernate.SQL - alter table data_umkm add column no_telpon TEXT not null
+2025-11-15 10:23:47 DEBUG [DefaultDispatcher-worker-1] org.hibernate.SQL - alter table data_umkm add column data_kategori_id bigint
+2025-11-15 10:24:21 DEBUG [http-nio-8080-exec-2] org.hibernate.SQL - select dp1_0.id,dp1_0.data_level_id,dp1_0.kata_sandi,dp1_0.nama_lengkap,dp1_0.nama_pengguna,dp1_0.status from data_pengguna dp1_0 where dp1_0.nama_pengguna=?
+2025-11-15 10:24:21 TRACE [http-nio-8080-exec-2] org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [a]
+2025-11-15 10:24:21 DEBUG [http-nio-8080-exec-2] org.hibernate.SQL - select dl1_0.id,dl1_0.level from data_level dl1_0 where dl1_0.id=?
+2025-11-15 10:24:21 TRACE [http-nio-8080-exec-2] org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [2]
+2025-11-15 10:24:28 DEBUG [http-nio-8080-exec-3] org.hibernate.SQL - select du1_0.id,du1_0.alamat,du1_0.data_kategori_id,du1_0.email,du1_0.facebook_nama,du1_0.instagram_nama,du1_0.nama_pemilik_umkm,du1_0.nama_umkm,du1_0.no_ktp,du1_0.no_telpon,du1_0.status,du1_0.tgl_lahir from data_umkm du1_0
+2025-11-15 10:24:59 DEBUG [http-nio-8080-exec-6] org.hibernate.SQL - select dk1_0.id,dk1_0.kategori from data_kategori dk1_0
+2025-11-15 10:25:07 DEBUG [http-nio-8080-exec-8] org.hibernate.SQL - insert into data_kategori (kategori) values (?)
+2025-11-15 10:25:07 TRACE [http-nio-8080-exec-8] org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [Makanan]
+2025-11-15 10:25:07 DEBUG [http-nio-8080-exec-8] org.hibernate.SQL - select last_insert_rowid()
+2025-11-15 10:25:08 DEBUG [http-nio-8080-exec-9] org.hibernate.SQL - select dk1_0.id,dk1_0.kategori from data_kategori dk1_0
+2025-11-15 10:25:15 DEBUG [http-nio-8080-exec-10] org.hibernate.SQL - insert into data_kategori (kategori) values (?)
+2025-11-15 10:25:15 TRACE [http-nio-8080-exec-10] org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [Minuman]
+2025-11-15 10:25:15 DEBUG [http-nio-8080-exec-10] org.hibernate.SQL - select last_insert_rowid()
+2025-11-15 10:25:16 DEBUG [http-nio-8080-exec-1] org.hibernate.SQL - select dk1_0.id,dk1_0.kategori from data_kategori dk1_0
+2025-11-15 10:25:20 DEBUG [http-nio-8080-exec-2] org.hibernate.SQL - insert into data_kategori (kategori) values (?)
+2025-11-15 10:25:20 TRACE [http-nio-8080-exec-2] org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [Salon]
+2025-11-15 10:25:20 DEBUG [http-nio-8080-exec-2] org.hibernate.SQL - select last_insert_rowid()
+2025-11-15 10:25:21 DEBUG [http-nio-8080-exec-3] org.hibernate.SQL - select dk1_0.id,dk1_0.kategori from data_kategori dk1_0
+2025-11-15 10:25:24 DEBUG [http-nio-8080-exec-4] org.hibernate.SQL - select du1_0.id,du1_0.alamat,du1_0.data_kategori_id,du1_0.email,du1_0.facebook_nama,du1_0.instagram_nama,du1_0.nama_pemilik_umkm,du1_0.nama_umkm,du1_0.no_ktp,du1_0.no_telpon,du1_0.status,du1_0.tgl_lahir from data_umkm du1_0
+2025-11-15 10:27:35 DEBUG [http-nio-8080-exec-1] org.hibernate.SQL - select dl1_0.id,dl1_0.level from data_level dl1_0
+2025-11-15 10:27:42 DEBUG [http-nio-8080-exec-2] org.hibernate.SQL - select dk1_0.id,dk1_0.kategori from data_kategori dk1_0
+2025-11-15 10:28:19 DEBUG [http-nio-8080-exec-4] org.hibernate.SQL - select dp1_0.id,dp1_0.data_level_id,dp1_0.kata_sandi,dp1_0.nama_lengkap,dp1_0.nama_pengguna,dp1_0.status from data_pengguna dp1_0 where dp1_0.nama_pengguna=?
+2025-11-15 10:28:19 TRACE [http-nio-8080-exec-4] org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [a]
+2025-11-15 10:28:19 DEBUG [http-nio-8080-exec-4] org.hibernate.SQL - select dl1_0.id,dl1_0.level from data_level dl1_0 where dl1_0.id=?
+2025-11-15 10:28:19 TRACE [http-nio-8080-exec-4] org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [2]
+2025-11-15 10:28:21 DEBUG [http-nio-8080-exec-6] org.hibernate.SQL - select dk1_0.id,dk1_0.kategori from data_kategori dk1_0
+2025-11-15 10:28:21 DEBUG [http-nio-8080-exec-7] org.hibernate.SQL - select du1_0.id,du1_0.alamat,du1_0.data_kategori_id,du1_0.email,du1_0.facebook_nama,du1_0.instagram_nama,du1_0.nama_pemilik_umkm,du1_0.nama_umkm,du1_0.no_ktp,du1_0.no_telpon,du1_0.status,du1_0.tgl_lahir from data_umkm du1_0
+2025-11-15 10:28:33 DEBUG [http-nio-8080-exec-8] org.hibernate.SQL - select dl1_0.id,dl1_0.level from data_level dl1_0
+2025-11-15 10:28:35 DEBUG [http-nio-8080-exec-9] org.hibernate.SQL - select dp1_0.id,dp1_0.data_level_id,dp1_0.kata_sandi,dp1_0.nama_lengkap,dp1_0.nama_pengguna,dp1_0.status from data_pengguna dp1_0
+2025-11-15 10:28:35 DEBUG [http-nio-8080-exec-9] org.hibernate.SQL - select dl1_0.id,dl1_0.level from data_level dl1_0 where dl1_0.id=?
+2025-11-15 10:28:35 DEBUG [http-nio-8080-exec-10] org.hibernate.SQL - select dl1_0.id,dl1_0.level from data_level dl1_0
+2025-11-15 10:28:35 TRACE [http-nio-8080-exec-9] org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [2]
+2025-11-15 10:28:35 DEBUG [http-nio-8080-exec-9] org.hibernate.SQL - select dl1_0.id,dl1_0.level from data_level dl1_0 where dl1_0.id=?
+2025-11-15 10:28:35 TRACE [http-nio-8080-exec-9] org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [1]
+2025-11-15 10:34:21 DEBUG [http-nio-8080-exec-9] org.hibernate.SQL - select dp1_0.id,dp1_0.data_level_id,dp1_0.kata_sandi,dp1_0.nama_lengkap,dp1_0.nama_pengguna,dp1_0.status from data_pengguna dp1_0 where dp1_0.nama_pengguna=?
+2025-11-15 10:34:21 TRACE [http-nio-8080-exec-9] org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [a]
+2025-11-15 10:34:21 DEBUG [http-nio-8080-exec-9] org.hibernate.SQL - select dl1_0.id,dl1_0.level from data_level dl1_0 where dl1_0.id=?
+2025-11-15 10:34:21 TRACE [http-nio-8080-exec-9] org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [2]
+2025-11-15 10:34:24 DEBUG [http-nio-8080-exec-2] org.hibernate.SQL - select dp1_0.id,dp1_0.data_level_id,dp1_0.kata_sandi,dp1_0.nama_lengkap,dp1_0.nama_pengguna,dp1_0.status from data_pengguna dp1_0
+2025-11-15 10:34:24 DEBUG [http-nio-8080-exec-2] org.hibernate.SQL - select dl1_0.id,dl1_0.level from data_level dl1_0 where dl1_0.id=?
+2025-11-15 10:34:24 TRACE [http-nio-8080-exec-2] org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [2]
+2025-11-15 10:34:24 DEBUG [http-nio-8080-exec-2] org.hibernate.SQL - select dl1_0.id,dl1_0.level from data_level dl1_0 where dl1_0.id=?
+2025-11-15 10:34:24 TRACE [http-nio-8080-exec-2] org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [1]
+2025-11-15 10:34:24 DEBUG [http-nio-8080-exec-1] org.hibernate.SQL - select dl1_0.id,dl1_0.level from data_level dl1_0
+2025-11-15 10:34:28 DEBUG [http-nio-8080-exec-3] org.hibernate.SQL - select dp1_0.id,dp1_0.data_level_id,dp1_0.kata_sandi,dp1_0.nama_lengkap,dp1_0.nama_pengguna,dp1_0.status from data_pengguna dp1_0
+2025-11-15 10:34:28 DEBUG [http-nio-8080-exec-3] org.hibernate.SQL - select dl1_0.id,dl1_0.level from data_level dl1_0 where dl1_0.id=?
+2025-11-15 10:34:28 TRACE [http-nio-8080-exec-3] org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [2]
+2025-11-15 10:34:28 DEBUG [http-nio-8080-exec-3] org.hibernate.SQL - select dl1_0.id,dl1_0.level from data_level dl1_0 where dl1_0.id=?
+2025-11-15 10:34:28 TRACE [http-nio-8080-exec-3] org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [1]
+2025-11-15 10:34:31 DEBUG [http-nio-8080-exec-4] org.hibernate.SQL - select du1_0.id,du1_0.alamat,du1_0.data_kategori_id,du1_0.email,du1_0.facebook_nama,du1_0.instagram_nama,du1_0.nama_pemilik_umkm,du1_0.nama_umkm,du1_0.no_ktp,du1_0.no_telpon,du1_0.status,du1_0.tgl_lahir from data_umkm du1_0
+2025-11-15 10:34:31 DEBUG [http-nio-8080-exec-5] org.hibernate.SQL - select dk1_0.id,dk1_0.kategori from data_kategori dk1_0
+2025-11-15 10:35:38 DEBUG [http-nio-8080-exec-3] org.hibernate.SQL - select dp1_0.id,dp1_0.data_level_id,dp1_0.kata_sandi,dp1_0.nama_lengkap,dp1_0.nama_pengguna,dp1_0.status from data_pengguna dp1_0 where dp1_0.nama_pengguna=?
+2025-11-15 10:35:38 TRACE [http-nio-8080-exec-3] org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [a]
+2025-11-15 10:35:38 DEBUG [http-nio-8080-exec-3] org.hibernate.SQL - select dl1_0.id,dl1_0.level from data_level dl1_0 where dl1_0.id=?
+2025-11-15 10:35:38 TRACE [http-nio-8080-exec-3] org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [2]
+2025-11-15 10:35:40 DEBUG [http-nio-8080-exec-4] org.hibernate.SQL - select dp1_0.id,dp1_0.data_level_id,dp1_0.kata_sandi,dp1_0.nama_lengkap,dp1_0.nama_pengguna,dp1_0.status from data_pengguna dp1_0
+2025-11-15 10:35:40 DEBUG [http-nio-8080-exec-4] org.hibernate.SQL - select dl1_0.id,dl1_0.level from data_level dl1_0 where dl1_0.id=?
+2025-11-15 10:35:40 TRACE [http-nio-8080-exec-4] org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [2]
+2025-11-15 10:35:40 DEBUG [http-nio-8080-exec-4] org.hibernate.SQL - select dl1_0.id,dl1_0.level from data_level dl1_0 where dl1_0.id=?
+2025-11-15 10:35:40 TRACE [http-nio-8080-exec-4] org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [1]
+2025-11-15 10:35:40 DEBUG [http-nio-8080-exec-5] org.hibernate.SQL - select dl1_0.id,dl1_0.level from data_level dl1_0
+2025-11-15 10:35:46 DEBUG [http-nio-8080-exec-7] org.hibernate.SQL - select du1_0.id,du1_0.alamat,du1_0.data_kategori_id,du1_0.email,du1_0.facebook_nama,du1_0.instagram_nama,du1_0.nama_pemilik_umkm,du1_0.nama_umkm,du1_0.no_ktp,du1_0.no_telpon,du1_0.status,du1_0.tgl_lahir from data_umkm du1_0
+2025-11-15 10:35:46 DEBUG [http-nio-8080-exec-6] org.hibernate.SQL - select dk1_0.id,dk1_0.kategori from data_kategori dk1_0
+2025-11-15 10:36:52 DEBUG [http-nio-8080-exec-4] org.hibernate.SQL - select du1_0.id from data_umkm du1_0 where du1_0.email=? limit ?
+2025-11-15 10:36:52 TRACE [http-nio-8080-exec-4] org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [tc@gmail.com]
+2025-11-15 10:36:52 TRACE [http-nio-8080-exec-4] org.hibernate.orm.jdbc.bind - binding parameter (2:INTEGER) <- [1]
+2025-11-15 10:36:52 DEBUG [http-nio-8080-exec-4] org.hibernate.SQL - select du1_0.id from data_umkm du1_0 where du1_0.no_ktp=? limit ?
+2025-11-15 10:36:52 TRACE [http-nio-8080-exec-4] org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [123456789]
+2025-11-15 10:36:52 TRACE [http-nio-8080-exec-4] org.hibernate.orm.jdbc.bind - binding parameter (2:INTEGER) <- [1]
+2025-11-15 10:36:52 DEBUG [http-nio-8080-exec-4] org.hibernate.SQL - insert into data_umkm (alamat,data_kategori_id,email,facebook_nama,instagram_nama,nama_pemilik_umkm,nama_umkm,no_ktp,no_telpon,status,tgl_lahir) values (?,?,?,?,?,?,?,?,?,?,?)
+2025-11-15 10:36:52 TRACE [http-nio-8080-exec-4] org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [Lubuk Cuik]
+2025-11-15 10:36:52 TRACE [http-nio-8080-exec-4] org.hibernate.orm.jdbc.bind - binding parameter (2:BIGINT) <- [1]
+2025-11-15 10:36:52 TRACE [http-nio-8080-exec-4] org.hibernate.orm.jdbc.bind - binding parameter (3:VARCHAR) <- [tc@gmail.com]
+2025-11-15 10:36:52 TRACE [http-nio-8080-exec-4] org.hibernate.orm.jdbc.bind - binding parameter (4:VARCHAR) <- [Turunan Cabe]
+2025-11-15 10:36:52 TRACE [http-nio-8080-exec-4] org.hibernate.orm.jdbc.bind - binding parameter (5:VARCHAR) <- [turunancabe]
+2025-11-15 10:36:52 TRACE [http-nio-8080-exec-4] org.hibernate.orm.jdbc.bind - binding parameter (6:VARCHAR) <- [leni]
+2025-11-15 10:36:52 TRACE [http-nio-8080-exec-4] org.hibernate.orm.jdbc.bind - binding parameter (7:VARCHAR) <- [Turunan Cabe]
+2025-11-15 10:36:52 TRACE [http-nio-8080-exec-4] org.hibernate.orm.jdbc.bind - binding parameter (8:VARCHAR) <- [123456789]
+2025-11-15 10:36:52 TRACE [http-nio-8080-exec-4] org.hibernate.orm.jdbc.bind - binding parameter (9:VARCHAR) <- [123]
+2025-11-15 10:36:52 TRACE [http-nio-8080-exec-4] org.hibernate.orm.jdbc.bind - binding parameter (10:BOOLEAN) <- [true]
+2025-11-15 10:36:52 TRACE [http-nio-8080-exec-4] org.hibernate.orm.jdbc.bind - binding parameter (11:BIGINT) <- [1763053200000]
+2025-11-15 10:41:06 DEBUG [http-nio-8080-exec-7] org.hibernate.SQL - select dp1_0.id,dp1_0.data_level_id,dp1_0.kata_sandi,dp1_0.nama_lengkap,dp1_0.nama_pengguna,dp1_0.status from data_pengguna dp1_0 where dp1_0.nama_pengguna=?
+2025-11-15 10:41:06 TRACE [http-nio-8080-exec-7] org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [a]
+2025-11-15 10:41:06 DEBUG [http-nio-8080-exec-7] org.hibernate.SQL - select dl1_0.id,dl1_0.level from data_level dl1_0 where dl1_0.id=?
+2025-11-15 10:41:06 TRACE [http-nio-8080-exec-7] org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [2]
+2025-11-15 10:41:09 DEBUG [http-nio-8080-exec-6] org.hibernate.SQL - select dk1_0.id,dk1_0.kategori from data_kategori dk1_0
+2025-11-15 10:41:09 DEBUG [http-nio-8080-exec-8] org.hibernate.SQL - select du1_0.id,du1_0.alamat,du1_0.data_kategori_id,du1_0.email,du1_0.facebook_nama,du1_0.instagram_nama,du1_0.nama_pemilik_umkm,du1_0.nama_umkm,du1_0.no_ktp,du1_0.no_telpon,du1_0.status,du1_0.tgl_lahir from data_umkm du1_0
+2025-11-15 10:41:19 DEBUG [http-nio-8080-exec-10] org.hibernate.SQL - select du1_0.id from data_umkm du1_0 where du1_0.email=? limit ?
+2025-11-15 10:41:19 TRACE [http-nio-8080-exec-10] org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [a]
+2025-11-15 10:41:19 TRACE [http-nio-8080-exec-10] org.hibernate.orm.jdbc.bind - binding parameter (2:INTEGER) <- [1]
+2025-11-15 10:41:19 DEBUG [http-nio-8080-exec-10] org.hibernate.SQL - select du1_0.id from data_umkm du1_0 where du1_0.no_ktp=? limit ?
+2025-11-15 10:41:19 TRACE [http-nio-8080-exec-10] org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [a]
+2025-11-15 10:41:19 TRACE [http-nio-8080-exec-10] org.hibernate.orm.jdbc.bind - binding parameter (2:INTEGER) <- [1]
+2025-11-15 10:46:30 DEBUG [http-nio-8080-exec-2] org.hibernate.SQL - select dp1_0.id,dp1_0.data_level_id,dp1_0.kata_sandi,dp1_0.nama_lengkap,dp1_0.nama_pengguna,dp1_0.status from data_pengguna dp1_0 where dp1_0.nama_pengguna=?
+2025-11-15 10:46:30 TRACE [http-nio-8080-exec-2] org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [a]
+2025-11-15 10:46:30 DEBUG [http-nio-8080-exec-2] org.hibernate.SQL - select dl1_0.id,dl1_0.level from data_level dl1_0 where dl1_0.id=?
+2025-11-15 10:46:30 TRACE [http-nio-8080-exec-2] org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [2]
+2025-11-15 10:46:32 DEBUG [http-nio-8080-exec-4] org.hibernate.SQL - select du1_0.id,du1_0.alamat,du1_0.data_kategori_id,du1_0.email,du1_0.facebook_nama,du1_0.instagram_nama,du1_0.nama_pemilik_umkm,du1_0.nama_umkm,du1_0.no_ktp,du1_0.no_telpon,du1_0.status,du1_0.tgl_lahir from data_umkm du1_0
+2025-11-15 10:46:32 DEBUG [http-nio-8080-exec-3] org.hibernate.SQL - select dk1_0.id,dk1_0.kategori from data_kategori dk1_0
+2025-11-15 10:46:43 DEBUG [http-nio-8080-exec-5] org.hibernate.SQL - select du1_0.id from data_umkm du1_0 where du1_0.email=? limit ?
+2025-11-15 10:46:43 TRACE [http-nio-8080-exec-5] org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [a]
+2025-11-15 10:46:43 TRACE [http-nio-8080-exec-5] org.hibernate.orm.jdbc.bind - binding parameter (2:INTEGER) <- [1]
+2025-11-15 10:46:43 DEBUG [http-nio-8080-exec-5] org.hibernate.SQL - select du1_0.id from data_umkm du1_0 where du1_0.no_ktp=? limit ?
+2025-11-15 10:46:43 TRACE [http-nio-8080-exec-5] org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [a]
+2025-11-15 10:46:43 TRACE [http-nio-8080-exec-5] org.hibernate.orm.jdbc.bind - binding parameter (2:INTEGER) <- [1]
+2025-11-15 10:46:50 DEBUG [http-nio-8080-exec-6] org.hibernate.SQL - select du1_0.id from data_umkm du1_0 where du1_0.email=? limit ?
+2025-11-15 10:46:50 TRACE [http-nio-8080-exec-6] org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [a]
+2025-11-15 10:46:50 TRACE [http-nio-8080-exec-6] org.hibernate.orm.jdbc.bind - binding parameter (2:INTEGER) <- [1]
+2025-11-15 10:46:50 DEBUG [http-nio-8080-exec-6] org.hibernate.SQL - select du1_0.id from data_umkm du1_0 where du1_0.no_ktp=? limit ?
+2025-11-15 10:46:50 TRACE [http-nio-8080-exec-6] org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [a]
+2025-11-15 10:46:50 TRACE [http-nio-8080-exec-6] org.hibernate.orm.jdbc.bind - binding parameter (2:INTEGER) <- [1]
+2025-11-15 10:47:06 DEBUG [http-nio-8080-exec-10] org.hibernate.SQL - select du1_0.id from data_umkm du1_0 where du1_0.email=? limit ?
+2025-11-15 10:47:06 TRACE [http-nio-8080-exec-10] org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [a@a.com]
+2025-11-15 10:47:06 TRACE [http-nio-8080-exec-10] org.hibernate.orm.jdbc.bind - binding parameter (2:INTEGER) <- [1]
+2025-11-15 10:47:06 DEBUG [http-nio-8080-exec-10] org.hibernate.SQL - select du1_0.id from data_umkm du1_0 where du1_0.no_ktp=? limit ?
+2025-11-15 10:47:06 TRACE [http-nio-8080-exec-10] org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [a]
+2025-11-15 10:47:06 TRACE [http-nio-8080-exec-10] org.hibernate.orm.jdbc.bind - binding parameter (2:INTEGER) <- [1]
+2025-11-15 10:47:06 DEBUG [http-nio-8080-exec-10] org.hibernate.SQL - insert into data_umkm (alamat,data_kategori_id,email,facebook_nama,instagram_nama,nama_pemilik_umkm,nama_umkm,no_ktp,no_telpon,status,tgl_lahir) values (?,?,?,?,?,?,?,?,?,?,?)
+2025-11-15 10:47:06 TRACE [http-nio-8080-exec-10] org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [a]
+2025-11-15 10:47:06 TRACE [http-nio-8080-exec-10] org.hibernate.orm.jdbc.bind - binding parameter (2:BIGINT) <- [1]
+2025-11-15 10:47:06 TRACE [http-nio-8080-exec-10] org.hibernate.orm.jdbc.bind - binding parameter (3:VARCHAR) <- [a@a.com]
+2025-11-15 10:47:06 TRACE [http-nio-8080-exec-10] org.hibernate.orm.jdbc.bind - binding parameter (4:VARCHAR) <- [a]
+2025-11-15 10:47:06 TRACE [http-nio-8080-exec-10] org.hibernate.orm.jdbc.bind - binding parameter (5:VARCHAR) <- [a]
+2025-11-15 10:47:06 TRACE [http-nio-8080-exec-10] org.hibernate.orm.jdbc.bind - binding parameter (6:VARCHAR) <- [a]
+2025-11-15 10:47:06 TRACE [http-nio-8080-exec-10] org.hibernate.orm.jdbc.bind - binding parameter (7:VARCHAR) <- [a]
+2025-11-15 10:47:06 TRACE [http-nio-8080-exec-10] org.hibernate.orm.jdbc.bind - binding parameter (8:VARCHAR) <- [a]
+2025-11-15 10:47:06 TRACE [http-nio-8080-exec-10] org.hibernate.orm.jdbc.bind - binding parameter (9:VARCHAR) <- [a]
+2025-11-15 10:47:06 TRACE [http-nio-8080-exec-10] org.hibernate.orm.jdbc.bind - binding parameter (10:BOOLEAN) <- [true]
+2025-11-15 10:47:06 TRACE [http-nio-8080-exec-10] org.hibernate.orm.jdbc.bind - binding parameter (11:BIGINT) <- [1762362000000]
+2025-11-15 11:26:22 DEBUG [http-nio-8080-exec-2] org.hibernate.SQL - select dp1_0.id,dp1_0.data_level_id,dp1_0.kata_sandi,dp1_0.nama_lengkap,dp1_0.nama_pengguna,dp1_0.status from data_pengguna dp1_0 where dp1_0.nama_pengguna=?
+2025-11-15 11:26:22 TRACE [http-nio-8080-exec-2] org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [a]
+2025-11-15 11:26:22 DEBUG [http-nio-8080-exec-2] org.hibernate.SQL - select dl1_0.id,dl1_0.level from data_level dl1_0 where dl1_0.id=?
+2025-11-15 11:26:22 TRACE [http-nio-8080-exec-2] org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [2]
+2025-11-15 11:26:26 DEBUG [http-nio-8080-exec-4] org.hibernate.SQL - select dk1_0.id,dk1_0.kategori from data_kategori dk1_0
+2025-11-15 11:26:26 DEBUG [http-nio-8080-exec-3] org.hibernate.SQL - select du1_0.id,du1_0.alamat,du1_0.data_kategori_id,du1_0.email,du1_0.facebook_nama,du1_0.instagram_nama,du1_0.nama_pemilik_umkm,du1_0.nama_umkm,du1_0.no_ktp,du1_0.no_telpon,du1_0.status,du1_0.tgl_lahir from data_umkm du1_0
+2025-11-15 11:28:24 DEBUG [http-nio-8080-exec-4] org.hibernate.SQL - select dp1_0.id,dp1_0.data_level_id,dp1_0.kata_sandi,dp1_0.nama_lengkap,dp1_0.nama_pengguna,dp1_0.status from data_pengguna dp1_0 where dp1_0.nama_pengguna=?
+2025-11-15 11:28:24 TRACE [http-nio-8080-exec-4] org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [a]
+2025-11-15 11:28:24 DEBUG [http-nio-8080-exec-4] org.hibernate.SQL - select dl1_0.id,dl1_0.level from data_level dl1_0 where dl1_0.id=?
+2025-11-15 11:28:24 TRACE [http-nio-8080-exec-4] org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [2]
+2025-11-15 11:28:26 DEBUG [http-nio-8080-exec-5] org.hibernate.SQL - select dk1_0.id,dk1_0.kategori from data_kategori dk1_0
+2025-11-15 11:28:26 DEBUG [http-nio-8080-exec-3] org.hibernate.SQL - select du1_0.id,du1_0.alamat,du1_0.data_kategori_id,du1_0.email,du1_0.facebook_nama,du1_0.instagram_nama,du1_0.nama_pemilik_umkm,du1_0.nama_umkm,du1_0.no_ktp,du1_0.no_telpon,du1_0.status,du1_0.tgl_lahir from data_umkm du1_0
+2025-11-15 11:30:47 DEBUG [http-nio-8080-exec-1] org.hibernate.SQL - select dp1_0.id,dp1_0.data_level_id,dp1_0.kata_sandi,dp1_0.nama_lengkap,dp1_0.nama_pengguna,dp1_0.status from data_pengguna dp1_0 where dp1_0.nama_pengguna=?
+2025-11-15 11:30:47 TRACE [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [a]
+2025-11-15 11:30:47 DEBUG [http-nio-8080-exec-1] org.hibernate.SQL - select dl1_0.id,dl1_0.level from data_level dl1_0 where dl1_0.id=?
+2025-11-15 11:30:47 TRACE [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [2]
+2025-11-15 11:30:49 DEBUG [http-nio-8080-exec-4] org.hibernate.SQL - select du1_0.id,du1_0.alamat,du1_0.data_kategori_id,du1_0.email,du1_0.facebook_nama,du1_0.instagram_nama,du1_0.nama_pemilik_umkm,du1_0.nama_umkm,du1_0.no_ktp,du1_0.no_telpon,du1_0.status,du1_0.tgl_lahir from data_umkm du1_0
+2025-11-15 11:30:49 DEBUG [http-nio-8080-exec-2] org.hibernate.SQL - select dk1_0.id,dk1_0.kategori from data_kategori dk1_0
+2025-11-15 11:34:33 DEBUG [http-nio-8080-exec-2] org.hibernate.SQL - select dp1_0.id,dp1_0.data_level_id,dp1_0.kata_sandi,dp1_0.nama_lengkap,dp1_0.nama_pengguna,dp1_0.status from data_pengguna dp1_0 where dp1_0.nama_pengguna=?
+2025-11-15 11:34:33 TRACE [http-nio-8080-exec-2] org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [a]
+2025-11-15 11:34:33 DEBUG [http-nio-8080-exec-2] org.hibernate.SQL - select dl1_0.id,dl1_0.level from data_level dl1_0 where dl1_0.id=?
+2025-11-15 11:34:33 TRACE [http-nio-8080-exec-2] org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [2]
+2025-11-15 11:34:38 DEBUG [http-nio-8080-exec-3] org.hibernate.SQL - select dk1_0.id,dk1_0.kategori from data_kategori dk1_0
+2025-11-15 11:34:38 DEBUG [http-nio-8080-exec-6] org.hibernate.SQL - select du1_0.id,du1_0.alamat,du1_0.data_kategori_id,du1_0.email,du1_0.facebook_nama,du1_0.instagram_nama,du1_0.nama_pemilik_umkm,du1_0.nama_umkm,du1_0.no_ktp,du1_0.no_telpon,du1_0.status,du1_0.tgl_lahir from data_umkm du1_0
+2025-11-15 11:34:57 DEBUG [http-nio-8080-exec-5] org.hibernate.SQL - select du1_0.id from data_umkm du1_0 where du1_0.email=? limit ?
+2025-11-15 11:34:57 TRACE [http-nio-8080-exec-5] org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [a]
+2025-11-15 11:34:57 TRACE [http-nio-8080-exec-5] org.hibernate.orm.jdbc.bind - binding parameter (2:INTEGER) <- [1]
+2025-11-15 11:34:57 DEBUG [http-nio-8080-exec-5] org.hibernate.SQL - select du1_0.id from data_umkm du1_0 where du1_0.no_ktp=? limit ?
+2025-11-15 11:34:57 TRACE [http-nio-8080-exec-5] org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [a]
+2025-11-15 11:34:57 TRACE [http-nio-8080-exec-5] org.hibernate.orm.jdbc.bind - binding parameter (2:INTEGER) <- [1]
+2025-11-15 11:34:57 DEBUG [http-nio-8080-exec-5] org.hibernate.SQL - select dk1_0.id,dk1_0.kategori from data_kategori dk1_0 where dk1_0.id=?
+2025-11-15 11:34:57 TRACE [http-nio-8080-exec-5] org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [1]
+2025-11-15 11:35:06 DEBUG [http-nio-8080-exec-8] org.hibernate.SQL - select du1_0.id from data_umkm du1_0 where du1_0.email=? limit ?
+2025-11-15 11:35:06 TRACE [http-nio-8080-exec-8] org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [a@a.com]
+2025-11-15 11:35:06 TRACE [http-nio-8080-exec-8] org.hibernate.orm.jdbc.bind - binding parameter (2:INTEGER) <- [1]
+2025-11-15 11:35:06 DEBUG [http-nio-8080-exec-8] org.hibernate.SQL - select du1_0.id from data_umkm du1_0 where du1_0.no_ktp=? limit ?
+2025-11-15 11:35:06 TRACE [http-nio-8080-exec-8] org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [a]
+2025-11-15 11:35:06 TRACE [http-nio-8080-exec-8] org.hibernate.orm.jdbc.bind - binding parameter (2:INTEGER) <- [1]
+2025-11-15 11:35:06 DEBUG [http-nio-8080-exec-8] org.hibernate.SQL - select dk1_0.id,dk1_0.kategori from data_kategori dk1_0 where dk1_0.id=?
+2025-11-15 11:35:06 TRACE [http-nio-8080-exec-8] org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [1]
+2025-11-15 11:35:06 DEBUG [http-nio-8080-exec-8] org.hibernate.SQL - insert into data_umkm (alamat,data_kategori_id,email,facebook_nama,instagram_nama,nama_pemilik_umkm,nama_umkm,no_ktp,no_telpon,status,tgl_lahir) values (?,?,?,?,?,?,?,?,?,?,?)
+2025-11-15 11:35:06 TRACE [http-nio-8080-exec-8] org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [a]
+2025-11-15 11:35:06 TRACE [http-nio-8080-exec-8] org.hibernate.orm.jdbc.bind - binding parameter (2:BIGINT) <- [1]
+2025-11-15 11:35:06 TRACE [http-nio-8080-exec-8] org.hibernate.orm.jdbc.bind - binding parameter (3:VARCHAR) <- [a@a.com]
+2025-11-15 11:35:06 TRACE [http-nio-8080-exec-8] org.hibernate.orm.jdbc.bind - binding parameter (4:VARCHAR) <- [a]
+2025-11-15 11:35:06 TRACE [http-nio-8080-exec-8] org.hibernate.orm.jdbc.bind - binding parameter (5:VARCHAR) <- [a]
+2025-11-15 11:35:06 TRACE [http-nio-8080-exec-8] org.hibernate.orm.jdbc.bind - binding parameter (6:VARCHAR) <- [a]
+2025-11-15 11:35:06 TRACE [http-nio-8080-exec-8] org.hibernate.orm.jdbc.bind - binding parameter (7:VARCHAR) <- [a]
+2025-11-15 11:35:06 TRACE [http-nio-8080-exec-8] org.hibernate.orm.jdbc.bind - binding parameter (8:VARCHAR) <- [a]
+2025-11-15 11:35:06 TRACE [http-nio-8080-exec-8] org.hibernate.orm.jdbc.bind - binding parameter (9:VARCHAR) <- [a]
+2025-11-15 11:35:06 TRACE [http-nio-8080-exec-8] org.hibernate.orm.jdbc.bind - binding parameter (10:BOOLEAN) <- [true]
+2025-11-15 11:35:06 TRACE [http-nio-8080-exec-8] org.hibernate.orm.jdbc.bind - binding parameter (11:BIGINT) <- [1761930000000]
+2025-11-15 11:38:40 DEBUG [http-nio-8080-exec-1] org.hibernate.SQL - select dp1_0.id,dp1_0.data_level_id,dp1_0.kata_sandi,dp1_0.nama_lengkap,dp1_0.nama_pengguna,dp1_0.status from data_pengguna dp1_0 where dp1_0.nama_pengguna=?
+2025-11-15 11:38:40 TRACE [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [a]
+2025-11-15 11:38:40 DEBUG [http-nio-8080-exec-1] org.hibernate.SQL - select dl1_0.id,dl1_0.level from data_level dl1_0 where dl1_0.id=?
+2025-11-15 11:38:40 TRACE [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [2]
+2025-11-15 11:38:44 DEBUG [http-nio-8080-exec-2] org.hibernate.SQL - select dk1_0.id,dk1_0.kategori from data_kategori dk1_0
+2025-11-15 11:38:44 DEBUG [http-nio-8080-exec-4] org.hibernate.SQL - select du1_0.id,du1_0.alamat,du1_0.data_kategori_id,du1_0.email,du1_0.facebook_nama,du1_0.instagram_nama,du1_0.nama_pemilik_umkm,du1_0.nama_umkm,du1_0.no_ktp,du1_0.no_telpon,du1_0.status,du1_0.tgl_lahir from data_umkm du1_0
+2025-11-15 11:38:59 DEBUG [http-nio-8080-exec-5] org.hibernate.SQL - select du1_0.id from data_umkm du1_0 where du1_0.email=? limit ?
+2025-11-15 11:38:59 TRACE [http-nio-8080-exec-5] org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [a@a.com]
+2025-11-15 11:38:59 TRACE [http-nio-8080-exec-5] org.hibernate.orm.jdbc.bind - binding parameter (2:INTEGER) <- [1]
+2025-11-15 11:38:59 DEBUG [http-nio-8080-exec-5] org.hibernate.SQL - select du1_0.id from data_umkm du1_0 where du1_0.no_ktp=? limit ?
+2025-11-15 11:38:59 TRACE [http-nio-8080-exec-5] org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [a]
+2025-11-15 11:38:59 TRACE [http-nio-8080-exec-5] org.hibernate.orm.jdbc.bind - binding parameter (2:INTEGER) <- [1]
+2025-11-15 11:38:59 DEBUG [http-nio-8080-exec-5] org.hibernate.SQL - select dk1_0.id,dk1_0.kategori from data_kategori dk1_0 where dk1_0.id=?
+2025-11-15 11:38:59 TRACE [http-nio-8080-exec-5] org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [1]
+2025-11-15 11:38:59 DEBUG [http-nio-8080-exec-5] org.hibernate.SQL - insert into data_umkm (alamat,data_kategori_id,email,facebook_nama,instagram_nama,nama_pemilik_umkm,nama_umkm,no_ktp,no_telpon,status,tgl_lahir) values (?,?,?,?,?,?,?,?,?,?,?)
+2025-11-15 11:38:59 TRACE [http-nio-8080-exec-5] org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [a]
+2025-11-15 11:38:59 TRACE [http-nio-8080-exec-5] org.hibernate.orm.jdbc.bind - binding parameter (2:BIGINT) <- [1]
+2025-11-15 11:38:59 TRACE [http-nio-8080-exec-5] org.hibernate.orm.jdbc.bind - binding parameter (3:VARCHAR) <- [a@a.com]
+2025-11-15 11:38:59 TRACE [http-nio-8080-exec-5] org.hibernate.orm.jdbc.bind - binding parameter (4:VARCHAR) <- [a]
+2025-11-15 11:38:59 TRACE [http-nio-8080-exec-5] org.hibernate.orm.jdbc.bind - binding parameter (5:VARCHAR) <- [a]
+2025-11-15 11:38:59 TRACE [http-nio-8080-exec-5] org.hibernate.orm.jdbc.bind - binding parameter (6:VARCHAR) <- [a]
+2025-11-15 11:38:59 TRACE [http-nio-8080-exec-5] org.hibernate.orm.jdbc.bind - binding parameter (7:VARCHAR) <- [a]
+2025-11-15 11:38:59 TRACE [http-nio-8080-exec-5] org.hibernate.orm.jdbc.bind - binding parameter (8:VARCHAR) <- [a]
+2025-11-15 11:38:59 TRACE [http-nio-8080-exec-5] org.hibernate.orm.jdbc.bind - binding parameter (9:VARCHAR) <- [a]
+2025-11-15 11:38:59 TRACE [http-nio-8080-exec-5] org.hibernate.orm.jdbc.bind - binding parameter (10:BOOLEAN) <- [true]
+2025-11-15 11:38:59 TRACE [http-nio-8080-exec-5] org.hibernate.orm.jdbc.bind - binding parameter (11:BIGINT) <- [1762966800000]
+2025-11-15 11:39:28 DEBUG [http-nio-8080-exec-10] org.hibernate.SQL - select du1_0.id from data_umkm du1_0 where du1_0.email=? limit ?
+2025-11-15 11:39:28 TRACE [http-nio-8080-exec-10] org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [a@a.com]
+2025-11-15 11:39:28 TRACE [http-nio-8080-exec-10] org.hibernate.orm.jdbc.bind - binding parameter (2:INTEGER) <- [1]
+2025-11-15 11:39:47 DEBUG [http-nio-8080-exec-3] org.hibernate.SQL - select du1_0.id,du1_0.alamat,du1_0.data_kategori_id,du1_0.email,du1_0.facebook_nama,du1_0.instagram_nama,du1_0.nama_pemilik_umkm,du1_0.nama_umkm,du1_0.no_ktp,du1_0.no_telpon,du1_0.status,du1_0.tgl_lahir from data_umkm du1_0
+2025-11-15 11:39:47 DEBUG [http-nio-8080-exec-8] org.hibernate.SQL - select dk1_0.id,dk1_0.kategori from data_kategori dk1_0
+2025-11-15 11:39:58 DEBUG [DefaultDispatcher-worker-1] org.hibernate.SQL - create table data_umkm (id integer, alamat TEXT not null, email varchar(255) not null unique, facebook_nama varchar(255), instagram_nama varchar(255), nama_pemilik_umkm varchar(255) not null, nama_umkm varchar(255) not null, no_ktp varchar(255) not null unique, no_telpon TEXT not null, status boolean not null, tgl_lahir bigint not null, data_kategori_id bigint, primary key (id))
+2025-11-15 11:39:58 DEBUG [DefaultDispatcher-worker-1] org.hibernate.SQL - alter table data_umkm drop constraint UKs8nr1x4lw4suskfxn1onh51t7
+2025-11-15 11:39:58 DEBUG [DefaultDispatcher-worker-1] org.hibernate.SQL - alter table data_umkm drop constraint UKmn2oy39vr5plslh9dj0pljfhb
+2025-11-15 11:40:05 DEBUG [http-nio-8080-exec-1] org.hibernate.SQL - select du1_0.id,du1_0.alamat,du1_0.data_kategori_id,du1_0.email,du1_0.facebook_nama,du1_0.instagram_nama,du1_0.nama_pemilik_umkm,du1_0.nama_umkm,du1_0.no_ktp,du1_0.no_telpon,du1_0.status,du1_0.tgl_lahir from data_umkm du1_0
+2025-11-15 11:40:05 DEBUG [http-nio-8080-exec-2] org.hibernate.SQL - select dk1_0.id,dk1_0.kategori from data_kategori dk1_0
+2025-11-15 11:40:23 DEBUG [http-nio-8080-exec-4] org.hibernate.SQL - select du1_0.id from data_umkm du1_0 where du1_0.email=? limit ?
+2025-11-15 11:40:23 TRACE [http-nio-8080-exec-4] org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [a@a.com]
+2025-11-15 11:40:23 TRACE [http-nio-8080-exec-4] org.hibernate.orm.jdbc.bind - binding parameter (2:INTEGER) <- [1]
+2025-11-15 11:40:23 DEBUG [http-nio-8080-exec-4] org.hibernate.SQL - select du1_0.id from data_umkm du1_0 where du1_0.no_ktp=? limit ?
+2025-11-15 11:40:23 TRACE [http-nio-8080-exec-4] org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [a]
+2025-11-15 11:40:23 TRACE [http-nio-8080-exec-4] org.hibernate.orm.jdbc.bind - binding parameter (2:INTEGER) <- [1]
+2025-11-15 11:40:23 DEBUG [http-nio-8080-exec-4] org.hibernate.SQL - select dk1_0.id,dk1_0.kategori from data_kategori dk1_0 where dk1_0.id=?
+2025-11-15 11:40:23 TRACE [http-nio-8080-exec-4] org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [1]
+2025-11-15 11:40:23 DEBUG [http-nio-8080-exec-4] org.hibernate.SQL - insert into data_umkm (alamat,data_kategori_id,email,facebook_nama,instagram_nama,nama_pemilik_umkm,nama_umkm,no_ktp,no_telpon,status,tgl_lahir) values (?,?,?,?,?,?,?,?,?,?,?)
+2025-11-15 11:40:23 TRACE [http-nio-8080-exec-4] org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [a]
+2025-11-15 11:40:23 TRACE [http-nio-8080-exec-4] org.hibernate.orm.jdbc.bind - binding parameter (2:BIGINT) <- [1]
+2025-11-15 11:40:23 TRACE [http-nio-8080-exec-4] org.hibernate.orm.jdbc.bind - binding parameter (3:VARCHAR) <- [a@a.com]
+2025-11-15 11:40:23 TRACE [http-nio-8080-exec-4] org.hibernate.orm.jdbc.bind - binding parameter (4:VARCHAR) <- [a]
+2025-11-15 11:40:23 TRACE [http-nio-8080-exec-4] org.hibernate.orm.jdbc.bind - binding parameter (5:VARCHAR) <- [a]
+2025-11-15 11:40:23 TRACE [http-nio-8080-exec-4] org.hibernate.orm.jdbc.bind - binding parameter (6:VARCHAR) <- [a]
+2025-11-15 11:40:23 TRACE [http-nio-8080-exec-4] org.hibernate.orm.jdbc.bind - binding parameter (7:VARCHAR) <- [a]
+2025-11-15 11:40:23 TRACE [http-nio-8080-exec-4] org.hibernate.orm.jdbc.bind - binding parameter (8:VARCHAR) <- [a]
+2025-11-15 11:40:23 TRACE [http-nio-8080-exec-4] org.hibernate.orm.jdbc.bind - binding parameter (9:VARCHAR) <- [a]
+2025-11-15 11:40:23 TRACE [http-nio-8080-exec-4] org.hibernate.orm.jdbc.bind - binding parameter (10:BOOLEAN) <- [true]
+2025-11-15 11:40:23 TRACE [http-nio-8080-exec-4] org.hibernate.orm.jdbc.bind - binding parameter (11:BIGINT) <- [1761930000000]
+2025-11-15 11:40:23 DEBUG [http-nio-8080-exec-4] org.hibernate.SQL - select last_insert_rowid()
+2025-11-15 11:40:24 DEBUG [http-nio-8080-exec-5] org.hibernate.SQL - select du1_0.id,du1_0.alamat,du1_0.data_kategori_id,du1_0.email,du1_0.facebook_nama,du1_0.instagram_nama,du1_0.nama_pemilik_umkm,du1_0.nama_umkm,du1_0.no_ktp,du1_0.no_telpon,du1_0.status,du1_0.tgl_lahir from data_umkm du1_0
+2025-11-15 11:40:24 DEBUG [http-nio-8080-exec-3] org.hibernate.SQL - select dk1_0.id,dk1_0.kategori from data_kategori dk1_0
+2025-11-15 11:40:24 DEBUG [http-nio-8080-exec-5] org.hibernate.SQL - select dk1_0.id,dk1_0.kategori from data_kategori dk1_0 where dk1_0.id=?
+2025-11-15 11:40:24 TRACE [http-nio-8080-exec-5] org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [1]
+2025-11-15 11:40:38 DEBUG [http-nio-8080-exec-6] org.hibernate.SQL - select du1_0.id,du1_0.alamat,du1_0.data_kategori_id,du1_0.email,du1_0.facebook_nama,du1_0.instagram_nama,du1_0.nama_pemilik_umkm,du1_0.nama_umkm,du1_0.no_ktp,du1_0.no_telpon,du1_0.status,du1_0.tgl_lahir from data_umkm du1_0
+2025-11-15 11:40:38 DEBUG [http-nio-8080-exec-6] org.hibernate.SQL - select dk1_0.id,dk1_0.kategori from data_kategori dk1_0 where dk1_0.id=?
+2025-11-15 11:40:38 TRACE [http-nio-8080-exec-6] org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [1]
+2025-11-15 11:40:38 DEBUG [http-nio-8080-exec-7] org.hibernate.SQL - select dk1_0.id,dk1_0.kategori from data_kategori dk1_0
+2025-11-15 11:41:36 DEBUG [http-nio-8080-exec-2] org.hibernate.SQL - select du1_0.id,du1_0.alamat,dk1_0.id,dk1_0.kategori,du1_0.email,du1_0.facebook_nama,du1_0.instagram_nama,du1_0.nama_pemilik_umkm,du1_0.nama_umkm,du1_0.no_ktp,du1_0.no_telpon,du1_0.status,du1_0.tgl_lahir from data_umkm du1_0 left join data_kategori dk1_0 on dk1_0.id=du1_0.data_kategori_id where du1_0.id=?
+2025-11-15 11:41:36 TRACE [http-nio-8080-exec-2] org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [1]
+2025-11-15 11:41:36 DEBUG [http-nio-8080-exec-2] org.hibernate.SQL - select dk1_0.id,dk1_0.kategori from data_kategori dk1_0 where dk1_0.id=?
+2025-11-15 11:41:36 TRACE [http-nio-8080-exec-2] org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [1]
+2025-11-15 11:41:36 DEBUG [http-nio-8080-exec-2] org.hibernate.SQL - select du1_0.id,du1_0.alamat,dk1_0.id,dk1_0.kategori,du1_0.email,du1_0.facebook_nama,du1_0.instagram_nama,du1_0.nama_pemilik_umkm,du1_0.nama_umkm,du1_0.no_ktp,du1_0.no_telpon,du1_0.status,du1_0.tgl_lahir from data_umkm du1_0 left join data_kategori dk1_0 on dk1_0.id=du1_0.data_kategori_id where du1_0.id=?
+2025-11-15 11:41:36 TRACE [http-nio-8080-exec-2] org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [1]
+2025-11-15 11:41:36 DEBUG [http-nio-8080-exec-2] org.hibernate.SQL - update data_umkm set alamat=?,data_kategori_id=?,email=?,facebook_nama=?,instagram_nama=?,nama_pemilik_umkm=?,nama_umkm=?,no_ktp=?,no_telpon=?,status=?,tgl_lahir=? where id=?
+2025-11-15 11:41:36 TRACE [http-nio-8080-exec-2] org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [Lubuk Cuik]
+2025-11-15 11:41:36 TRACE [http-nio-8080-exec-2] org.hibernate.orm.jdbc.bind - binding parameter (2:BIGINT) <- [1]
+2025-11-15 11:41:36 TRACE [http-nio-8080-exec-2] org.hibernate.orm.jdbc.bind - binding parameter (3:VARCHAR) <- [turunancabe@gmail.com]
+2025-11-15 11:41:36 TRACE [http-nio-8080-exec-2] org.hibernate.orm.jdbc.bind - binding parameter (4:VARCHAR) <- [Turunan Cabe]
+2025-11-15 11:41:36 TRACE [http-nio-8080-exec-2] org.hibernate.orm.jdbc.bind - binding parameter (5:VARCHAR) <- [turunancabe]
+2025-11-15 11:41:36 TRACE [http-nio-8080-exec-2] org.hibernate.orm.jdbc.bind - binding parameter (6:VARCHAR) <- [Usleni]
+2025-11-15 11:41:36 TRACE [http-nio-8080-exec-2] org.hibernate.orm.jdbc.bind - binding parameter (7:VARCHAR) <- [Turunan Cabe]
+2025-11-15 11:41:36 TRACE [http-nio-8080-exec-2] org.hibernate.orm.jdbc.bind - binding parameter (8:VARCHAR) <- [0000]
+2025-11-15 11:41:36 TRACE [http-nio-8080-exec-2] org.hibernate.orm.jdbc.bind - binding parameter (9:VARCHAR) <- [0852]
+2025-11-15 11:41:36 TRACE [http-nio-8080-exec-2] org.hibernate.orm.jdbc.bind - binding parameter (10:BOOLEAN) <- [true]
+2025-11-15 11:41:36 TRACE [http-nio-8080-exec-2] org.hibernate.orm.jdbc.bind - binding parameter (11:BIGINT) <- [1762534800000]
+2025-11-15 11:41:36 TRACE [http-nio-8080-exec-2] org.hibernate.orm.jdbc.bind - binding parameter (12:BIGINT) <- [1]
+2025-11-15 11:41:37 DEBUG [http-nio-8080-exec-1] org.hibernate.SQL - select dk1_0.id,dk1_0.kategori from data_kategori dk1_0
+2025-11-15 11:41:37 DEBUG [http-nio-8080-exec-4] org.hibernate.SQL - select du1_0.id,du1_0.alamat,du1_0.data_kategori_id,du1_0.email,du1_0.facebook_nama,du1_0.instagram_nama,du1_0.nama_pemilik_umkm,du1_0.nama_umkm,du1_0.no_ktp,du1_0.no_telpon,du1_0.status,du1_0.tgl_lahir from data_umkm du1_0
+2025-11-15 11:41:37 DEBUG [http-nio-8080-exec-4] org.hibernate.SQL - select dk1_0.id,dk1_0.kategori from data_kategori dk1_0 where dk1_0.id=?
+2025-11-15 11:41:37 TRACE [http-nio-8080-exec-4] org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [1]
+2025-11-15 11:46:58 DEBUG [http-nio-8080-exec-8] org.hibernate.SQL - select dp1_0.id,dp1_0.data_level_id,dp1_0.kata_sandi,dp1_0.nama_lengkap,dp1_0.nama_pengguna,dp1_0.status from data_pengguna dp1_0 where dp1_0.nama_pengguna=?
+2025-11-15 11:46:58 TRACE [http-nio-8080-exec-8] org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [a]
+2025-11-15 11:46:58 DEBUG [http-nio-8080-exec-8] org.hibernate.SQL - select dl1_0.id,dl1_0.level from data_level dl1_0 where dl1_0.id=?
+2025-11-15 11:46:58 TRACE [http-nio-8080-exec-8] org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [2]
+2025-11-15 11:47:00 DEBUG [http-nio-8080-exec-10] org.hibernate.SQL - select dk1_0.id,dk1_0.kategori from data_kategori dk1_0
+2025-11-15 11:47:00 DEBUG [http-nio-8080-exec-9] org.hibernate.SQL - select du1_0.id,du1_0.alamat,du1_0.data_kategori_id,du1_0.email,du1_0.facebook_nama,du1_0.instagram_nama,du1_0.nama_pemilik_umkm,du1_0.nama_umkm,du1_0.no_ktp,du1_0.no_telpon,du1_0.status,du1_0.tgl_lahir from data_umkm du1_0
+2025-11-15 11:47:00 DEBUG [http-nio-8080-exec-9] org.hibernate.SQL - select dk1_0.id,dk1_0.kategori from data_kategori dk1_0 where dk1_0.id=?
+2025-11-15 11:47:00 TRACE [http-nio-8080-exec-9] org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [1]
+2025-11-15 11:47:34 DEBUG [http-nio-8080-exec-5] org.hibernate.SQL - select du1_0.id,du1_0.alamat,dk1_0.id,dk1_0.kategori,du1_0.email,du1_0.facebook_nama,du1_0.instagram_nama,du1_0.nama_pemilik_umkm,du1_0.nama_umkm,du1_0.no_ktp,du1_0.no_telpon,du1_0.status,du1_0.tgl_lahir from data_umkm du1_0 left join data_kategori dk1_0 on dk1_0.id=du1_0.data_kategori_id where du1_0.id=?
+2025-11-15 11:47:34 TRACE [http-nio-8080-exec-5] org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [1]
+2025-11-15 11:47:34 DEBUG [http-nio-8080-exec-5] org.hibernate.SQL - select dk1_0.id,dk1_0.kategori from data_kategori dk1_0 where dk1_0.id=?
+2025-11-15 11:47:34 TRACE [http-nio-8080-exec-5] org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [2]
+2025-11-15 11:47:34 DEBUG [http-nio-8080-exec-5] org.hibernate.SQL - select du1_0.id,du1_0.alamat,dk1_0.id,dk1_0.kategori,du1_0.email,du1_0.facebook_nama,du1_0.instagram_nama,du1_0.nama_pemilik_umkm,du1_0.nama_umkm,du1_0.no_ktp,du1_0.no_telpon,du1_0.status,du1_0.tgl_lahir from data_umkm du1_0 left join data_kategori dk1_0 on dk1_0.id=du1_0.data_kategori_id where du1_0.id=?
+2025-11-15 11:47:34 TRACE [http-nio-8080-exec-5] org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [1]
+2025-11-15 11:47:34 DEBUG [http-nio-8080-exec-5] org.hibernate.SQL - select dk1_0.id,dk1_0.kategori from data_kategori dk1_0 where dk1_0.id=?
+2025-11-15 11:47:34 TRACE [http-nio-8080-exec-5] org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [2]
+2025-11-15 11:47:34 DEBUG [http-nio-8080-exec-5] org.hibernate.SQL - update data_umkm set alamat=?,data_kategori_id=?,email=?,facebook_nama=?,instagram_nama=?,nama_pemilik_umkm=?,nama_umkm=?,no_ktp=?,no_telpon=?,status=?,tgl_lahir=? where id=?
+2025-11-15 11:47:34 TRACE [http-nio-8080-exec-5] org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [Lubuk Cuik]
+2025-11-15 11:47:34 TRACE [http-nio-8080-exec-5] org.hibernate.orm.jdbc.bind - binding parameter (2:BIGINT) <- [2]
+2025-11-15 11:47:34 TRACE [http-nio-8080-exec-5] org.hibernate.orm.jdbc.bind - binding parameter (3:VARCHAR) <- [turunancabe@gmail.com]
+2025-11-15 11:47:34 TRACE [http-nio-8080-exec-5] org.hibernate.orm.jdbc.bind - binding parameter (4:VARCHAR) <- [Turunan Cabe]
+2025-11-15 11:47:34 TRACE [http-nio-8080-exec-5] org.hibernate.orm.jdbc.bind - binding parameter (5:VARCHAR) <- [turunancabe]
+2025-11-15 11:47:34 TRACE [http-nio-8080-exec-5] org.hibernate.orm.jdbc.bind - binding parameter (6:VARCHAR) <- [Usleni]
+2025-11-15 11:47:34 TRACE [http-nio-8080-exec-5] org.hibernate.orm.jdbc.bind - binding parameter (7:VARCHAR) <- [Turunan Cabe]
+2025-11-15 11:47:34 TRACE [http-nio-8080-exec-5] org.hibernate.orm.jdbc.bind - binding parameter (8:VARCHAR) <- [0000]
+2025-11-15 11:47:34 TRACE [http-nio-8080-exec-5] org.hibernate.orm.jdbc.bind - binding parameter (9:VARCHAR) <- [0852]
+2025-11-15 11:47:34 TRACE [http-nio-8080-exec-5] org.hibernate.orm.jdbc.bind - binding parameter (10:BOOLEAN) <- [false]
+2025-11-15 11:47:34 TRACE [http-nio-8080-exec-5] org.hibernate.orm.jdbc.bind - binding parameter (11:BIGINT) <- [1762534800000]
+2025-11-15 11:47:34 TRACE [http-nio-8080-exec-5] org.hibernate.orm.jdbc.bind - binding parameter (12:BIGINT) <- [1]
+2025-11-15 11:47:35 DEBUG [http-nio-8080-exec-7] org.hibernate.SQL - select dk1_0.id,dk1_0.kategori from data_kategori dk1_0
+2025-11-15 11:47:35 DEBUG [http-nio-8080-exec-6] org.hibernate.SQL - select du1_0.id,du1_0.alamat,du1_0.data_kategori_id,du1_0.email,du1_0.facebook_nama,du1_0.instagram_nama,du1_0.nama_pemilik_umkm,du1_0.nama_umkm,du1_0.no_ktp,du1_0.no_telpon,du1_0.status,du1_0.tgl_lahir from data_umkm du1_0
+2025-11-15 11:47:35 DEBUG [http-nio-8080-exec-6] org.hibernate.SQL - select dk1_0.id,dk1_0.kategori from data_kategori dk1_0 where dk1_0.id=?
+2025-11-15 11:47:35 TRACE [http-nio-8080-exec-6] org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [2]
+2025-11-15 11:47:45 DEBUG [http-nio-8080-exec-8] org.hibernate.SQL - select count(*) from data_umkm du1_0 where du1_0.id=?
+2025-11-15 11:47:45 TRACE [http-nio-8080-exec-8] org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [1]
+2025-11-15 11:47:45 DEBUG [http-nio-8080-exec-8] org.hibernate.SQL - select du1_0.id,du1_0.alamat,dk1_0.id,dk1_0.kategori,du1_0.email,du1_0.facebook_nama,du1_0.instagram_nama,du1_0.nama_pemilik_umkm,du1_0.nama_umkm,du1_0.no_ktp,du1_0.no_telpon,du1_0.status,du1_0.tgl_lahir from data_umkm du1_0 left join data_kategori dk1_0 on dk1_0.id=du1_0.data_kategori_id where du1_0.id=?
+2025-11-15 11:47:45 TRACE [http-nio-8080-exec-8] org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [1]
+2025-11-15 11:47:45 DEBUG [http-nio-8080-exec-8] org.hibernate.SQL - delete from data_umkm where id=?
+2025-11-15 11:47:45 TRACE [http-nio-8080-exec-8] org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [1]
+2025-11-15 11:47:46 DEBUG [http-nio-8080-exec-10] org.hibernate.SQL - select du1_0.id,du1_0.alamat,du1_0.data_kategori_id,du1_0.email,du1_0.facebook_nama,du1_0.instagram_nama,du1_0.nama_pemilik_umkm,du1_0.nama_umkm,du1_0.no_ktp,du1_0.no_telpon,du1_0.status,du1_0.tgl_lahir from data_umkm du1_0
+2025-11-15 11:47:46 DEBUG [http-nio-8080-exec-9] org.hibernate.SQL - select dk1_0.id,dk1_0.kategori from data_kategori dk1_0

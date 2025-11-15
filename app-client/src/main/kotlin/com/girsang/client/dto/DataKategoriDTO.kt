@@ -6,4 +6,6 @@ import kotlinx.serialization.Serializable
 data class DataKategoriDTO(
     val id: Long? = null,
     val kategori: String
-)
+){
+    override fun toString(): String = kategori
+}

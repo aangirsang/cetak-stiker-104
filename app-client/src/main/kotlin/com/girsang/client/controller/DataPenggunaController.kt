@@ -5,7 +5,6 @@ import com.girsang.client.dto.DataLevelDTO
 import com.girsang.client.dto.DataPenggunaDTO
 import javafx.application.Platform
 import javafx.beans.property.SimpleIntegerProperty
-import javafx.beans.property.SimpleLongProperty
 import javafx.beans.property.SimpleStringProperty
 import javafx.collections.FXCollections
 import javafx.fxml.FXML
@@ -20,12 +19,10 @@ import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import java.net.URI
 import java.net.URL
-import java.net.URLEncoder
 import java.util.ResourceBundle
 import java.net.http.HttpClient
 import java.net.http.HttpRequest
 import java.net.http.HttpResponse
-import java.nio.charset.StandardCharsets
 
 class DataPenggunaController : Initializable {
 
