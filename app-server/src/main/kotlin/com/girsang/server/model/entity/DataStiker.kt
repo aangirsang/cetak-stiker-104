@@ -13,9 +13,8 @@ data class DataStiker(
     val id: Long = 0,
 
     // 🔁 Relasi ke DataUMKM
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "umkm_id", nullable = false)
-    @JsonIgnoreProperties("daftarStiker")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "data_umkm_id", nullable = false)
     var dataUmkm: DataUmkm,
 
     @field:NotBlank(message = "Kode stiker tidak boleh kosong")

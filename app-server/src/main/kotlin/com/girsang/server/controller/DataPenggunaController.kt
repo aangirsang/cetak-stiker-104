@@ -1,6 +1,6 @@
 package com.girsang.server.controller
 
-import com.girsang.server.model.DTO.DataLoginDTO
+import com.girsang.server.model.dto.DataLoginDTO
 import com.girsang.server.model.entity.DataPengguna
 import com.girsang.server.service.DataPenggunaService
 import jakarta.validation.Valid
@@ -65,5 +65,9 @@ class DataPenggunaController(private val service: DataPenggunaService) {
     @GetMapping("/ping")
     fun ping(): ResponseEntity<Map<String, String>>{
     return ResponseEntity.ok(mapOf("Status Server " to "Terhubung"))
+    }
+    @GetMapping("/count")
+    fun countPengguna(): Long {
+        return service.count()
     }
 }

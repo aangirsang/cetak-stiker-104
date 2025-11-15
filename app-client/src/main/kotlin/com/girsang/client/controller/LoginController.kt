@@ -32,6 +32,7 @@ class LoginController : Initializable {
     private val json = Json { ignoreUnknownKeys = true }
 
     override fun initialize(p0: URL?, p1: ResourceBundle?) {
+
         btnLogin.setOnAction {login()}
         bersih()
     }
@@ -110,5 +111,7 @@ class LoginController : Initializable {
             }
         }.start()
     }
+
+
 
 }

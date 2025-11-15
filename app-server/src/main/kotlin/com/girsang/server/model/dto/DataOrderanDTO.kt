@@ -1,6 +1,8 @@
-package com.girsang.server.model.DTO
+package com.girsang.server.model.dto
 
 import com.girsang.server.model.entity.DataOrderan
+import com.girsang.server.model.entity.DataPengguna
+import com.girsang.server.model.entity.DataUmkm
 import java.time.Instant
 import java.time.LocalDateTime
 import java.time.ZoneId
@@ -10,31 +12,26 @@ import java.util.Locale
 data class DataOrderanDTO (
     val id: Long,
     var penggunaId: Long,
-    var penggunaNama: String,
+    var dataPengguna: DataPengguna? = null,
     var umkmId: Long,
-    var umkmNama: String,
+    var umkm: DataUmkm? = null,
+    var umkmNama: String = "",
     var faktur: String,
-    var tanggal: String,
+    var tanggal: Long,
     var totalStiker: Int,
-    val rincian: List<DataOrderanRinciDTO> = emptyList()
+    var rincian: List<DataOrderanRinciDTO> = emptyList()
 ){
     companion object{
-        private val formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy", Locale("id", "ID"))
-
         fun fromEntity(entity: DataOrderan): DataOrderanDTO {
-            val localDate = LocalDateTime.ofInstant(
-                Instant.ofEpochMilli(entity.tanggal),
-                ZoneId.systemDefault()
-            )
-
             return DataOrderanDTO(
                 id = entity.id,
                 penggunaId = entity.dataPengguna.id,
-                penggunaNama = entity.dataPengguna.namaPengguna,
+                dataPengguna = entity.dataPengguna,
+                umkm = entity.dataUMKM,
                 umkmId = entity.dataUMKM.id,
                 umkmNama = entity.dataUMKM.namaUmkm,
                 faktur = entity.faktur,
-                tanggal = localDate.format(formatter),
+                tanggal = entity.tanggal,
                 totalStiker = entity.totalStiker,
                 rincian = entity.rincian.map { DataOrderanRinciDTO.fromEntity(it) }
             )

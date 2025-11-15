@@ -1,6 +1,6 @@
 package com.girsang.server.service
 
-import com.girsang.server.model.DTO.DataUMKMDTO
+import com.girsang.server.model.dto.DataUMKMDTO
 import com.girsang.server.model.entity.DataUmkm
 import com.girsang.server.repository.DataKategoriRepository
 import com.girsang.server.repository.DataUmkmRepository
@@ -21,12 +21,18 @@ class DataUmkmService(
         return DataUMKMDTO.fromEntity(data)
     }
 
+    fun cariUMKM(namaPemilikUmkm: String?, namaUmkm: String?, alamat: String?): List<DataUmkm>{
+        val namaPemilikUmkm = namaPemilikUmkm?.trim()?.takeIf { it.isNotEmpty() }
+        val namaUmkm = namaUmkm?.trim()?.takeIf { it.isNotEmpty() }
+        val alamat = alamat?.trim()?.takeIf { it.isNotEmpty() }
+
+        return repo.cariUMKM(namaPemilikUmkm, namaUmkm, alamat)
+    }
+
     fun simpan(@RequestBody dto: DataUMKMDTO): ResponseEntity<DataUmkm> {
         if (repo.existsByEmail(dto.email)) throw IllegalArgumentException("Email sudah digunakan")
         if (repo.existsByNoKtp(dto.noKtp)) throw IllegalArgumentException("Nomor KTP sudah digunakan")
 
-        val kategori = repoKategori.findById(dto.dataKategoriId)
-            .orElseThrow { IllegalArgumentException("Kategori tidak ditemukan") }
         val umkm = DataUmkm(
             namaUmkm = dto.namaUmkm,
             namaPemilikUmkm = dto.namaPemilikUmkm,
@@ -35,7 +41,7 @@ class DataUmkmService(
             tglLahir = dto.tglLahir,
             alamat = dto.alamat,
             noTelpon = dto.noTelpon,
-            dataKategori = kategori,
+            dataKategori = dto.dataKategori,
             facebookNama = dto.facebookNama,
             instagramNama = dto.instagramNama,
             status = dto.status
@@ -46,8 +52,7 @@ class DataUmkmService(
 
     fun ubah(id: Long, @RequestBody dto: DataUMKMDTO): ResponseEntity<DataUmkm> {
         val lama = repo.findById(id).orElseThrow { NoSuchElementException("Data tidak ditemukan") }
-        val kategori = repoKategori.findById(dto.dataKategoriId)
-            .orElseThrow { IllegalArgumentException("Kategori tidak ditemukan") }
+
         lama.apply {
             lama.namaUmkm = dto.namaUmkm
             lama.namaPemilikUmkm = dto.namaPemilikUmkm
@@ -56,7 +61,7 @@ class DataUmkmService(
             lama.tglLahir = dto.tglLahir
             lama.alamat = dto.alamat
             lama.noTelpon = dto.noTelpon
-            lama.dataKategori = kategori
+            lama.dataKategori = dto.dataKategori
             lama.facebookNama = dto.facebookNama ?: ""
             lama.instagramNama = dto.instagramNama ?: ""
             lama.status = dto.status

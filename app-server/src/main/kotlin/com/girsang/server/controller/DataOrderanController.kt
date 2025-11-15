@@ -1,6 +1,6 @@
 package com.girsang.server.controller
 
-import com.girsang.server.model.DTO.DataOrderanDTO
+import com.girsang.server.model.dto.DataOrderanDTO
 import com.girsang.server.service.DataOrderanService
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -34,8 +34,7 @@ class DataOrderanController(
     }
 
     @GetMapping("/faktur")
-    fun getFaktur(): ResponseEntity<Map<String, String>> {
-        val faktur = service.getFakturBerikutnya()
-        return ResponseEntity.ok(mapOf("faktur" to faktur))
+    fun getFaktur(): ResponseEntity<String> {
+        return ResponseEntity.ok(service.getFakturBerikutnya())
     }
 }

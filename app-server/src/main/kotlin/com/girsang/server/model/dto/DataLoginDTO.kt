@@ -1,4 +1,4 @@
-package com.girsang.server.model.DTO
+package com.girsang.server.model.dto
 
 data class DataLoginDTO(
     val namaPengguna: String,

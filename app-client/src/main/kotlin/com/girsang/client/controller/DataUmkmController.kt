@@ -332,7 +332,7 @@ class DataUmkmController : Initializable{
                         tglLahir = tglLahir,
                         alamat = alamat,
                         noTelpon = noTelp,
-                        dataKategoriId = kategori.id!!,
+                        dataKategori = getKategoriTerpilih(),
                         facebookNama = facebook,
                         instagramNama = instagram,
                         status = status
@@ -389,7 +389,7 @@ class DataUmkmController : Initializable{
                             tglLahir = tglLahir,
                             alamat = alamat,
                             noTelpon = noTelp,
-                            dataKategoriId = kategori.id!!,
+                            dataKategori = getKategoriTerpilih(),
                             facebookNama = facebook,
                             instagramNama = instagram,
                             status = status
@@ -539,7 +539,7 @@ class DataUmkmController : Initializable{
             .toLocalDate()
 
         dpTglLahir.value = localDate
-        //cboKategoriUsaha.selectionModel.select(dto.dataKategoriId)
+        cboKategoriUsaha.selectionModel.select(dto.dataKategori)
         chkStatus.isSelected = dto.status
 
         btnSimpan.text = "Ubah"

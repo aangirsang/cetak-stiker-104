@@ -54,4 +54,7 @@ class DataPenggunaService(private val repo: DataPenggunaRepository) {
 
         return pengguna
     }
+    fun count(): Long {
+        return repo.count()
+    }
 }

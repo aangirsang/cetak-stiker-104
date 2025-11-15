@@ -1,6 +1,7 @@
 package com.girsang.server.controller
 
-import com.girsang.server.model.DTO.DataStikerDTO
+import com.girsang.server.model.dto.DataStikerDTO
+import com.girsang.server.model.entity.DataStiker
 import com.girsang.server.service.DataStikerService
 import org.springframework.http.ResponseEntity
 import org.springframework.validation.annotation.Validated
@@ -26,12 +27,24 @@ class DataStikerController(
         ResponseEntity.ok(service.cariByUMKM(umkmId))
 
     @PostMapping
-    fun simpan(@RequestBody dto: DataStikerDTO): ResponseEntity<DataStikerDTO> =
-        ResponseEntity.ok(service.simpan(dto))
+    fun simpan(@RequestBody dto: DataStikerDTO): ResponseEntity<Any> =
+        try {
+            ResponseEntity.ok(service.simpan(dto))
+        } catch (e: IllegalArgumentException) {
+            ResponseEntity.badRequest().body(mapOf("message" to e.message))
+        } catch (e: NoSuchElementException) {
+            ResponseEntity.status(404).body(mapOf("message" to e.message))
+        }
 
     @PutMapping("/{id}")
-    fun ubah(@PathVariable id: Long, @RequestBody dto: DataStikerDTO): ResponseEntity<DataStikerDTO> =
-        ResponseEntity.ok(service.ubah(id, dto))
+    fun ubah(@PathVariable id: Long, @RequestBody dto: DataStikerDTO): ResponseEntity<Any> =
+        try {
+            ResponseEntity.ok(service.ubah(id, dto))
+        } catch (e: IllegalArgumentException) {
+            ResponseEntity.badRequest().body(mapOf("message" to e.message))
+        } catch (e: NoSuchElementException) {
+            ResponseEntity.status(404).body(mapOf("message" to e.message))
+        }
 
     @DeleteMapping("/{id}")
     fun hapus(@PathVariable id: Long): ResponseEntity<Unit> {
@@ -43,5 +56,13 @@ class DataStikerController(
     fun getKodeStiker(@PathVariable umkmId: Long): ResponseEntity<Map<String, String>> {
         val kode = service.getKodeStikerBerikutnya(umkmId)
         return ResponseEntity.ok(mapOf("kodeStiker" to kode))
+    }
+
+    @GetMapping("/cari")
+    fun search(
+        @RequestParam(required = false) namaStiker: String?,
+        @RequestParam(required = false) namaUsaha: String?
+    ): List<DataStiker> {
+        return service.cariStiker(namaStiker, namaUsaha)
     }
 }

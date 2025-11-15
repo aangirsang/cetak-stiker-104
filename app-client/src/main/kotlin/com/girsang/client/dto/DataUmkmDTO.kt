@@ -12,8 +12,7 @@ data class DataUmkmDTO(
     var tglLahir: Long,
     var alamat: String,
     var noTelpon: String,
-
-    var dataKategoriId: Long,
+    var dataKategori: DataKategoriDTO,
     var facebookNama: String? = "",
     var instagramNama: String? = "",
     var status: Boolean = true

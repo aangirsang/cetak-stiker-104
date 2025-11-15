@@ -1,6 +1,6 @@
 package com.girsang.server.service
 
-import com.girsang.server.model.DTO.DataOrderanDTO
+import com.girsang.server.model.dto.DataOrderanDTO
 import com.girsang.server.model.entity.DataOrderan
 import com.girsang.server.model.entity.DataOrderanRinci
 import com.girsang.server.repository.*
@@ -17,12 +17,14 @@ class DataOrderanService(
     private val repoStiker: DataStikerRepository
 ) {
 
+    @Transactional(readOnly = true)
     fun semua(): List<DataOrderanDTO> =
-        repoOrderan.findAll().map { DataOrderanDTO.fromEntity(it) }
+        repoOrderan.findAllWithRincian().map { DataOrderanDTO.fromEntity(it) }
 
-    fun cariById(id: Long): DataOrderanDTO {
-        val orderan = repoOrderan.findById(id).orElseThrow { NoSuchElementException("Orderan tidak ditemukan") }
-        return DataOrderanDTO.fromEntity(orderan)
+    @Transactional(readOnly = true)
+    fun cariById(id: Long): DataOrderanDTO? {
+        val entity = repoOrderan.findByIdWithRincian(id) ?: return null
+        return DataOrderanDTO.fromEntity(entity)
     }
 
     @Transactional

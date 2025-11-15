@@ -1,4 +1,4 @@
-package com.girsang.server.model.DTO
+package com.girsang.server.model.dto
 
 import com.girsang.server.model.entity.DataOrderanRinci
 import java.time.Instant
@@ -9,31 +9,23 @@ import java.util.Locale
 import kotlin.Long
 
 data class DataOrderanRinciDTO (
-    val id: Long,
-    var orderanId: Long,
-    var tanggal: String,
+    val id: Long? = 0,
+    var stiker: DataStikerDTO? = null,
     var stikerId: Long,
     var stikerNama: String,
     var stikerKode: String,
-    var stikerUkuran: String,
-    var jumlah: Int
+    var jumlah: Int,
+    var ukuran: String
 ) {
     companion object{
-        private val formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy", Locale("id", "ID"))
-
         fun fromEntity(entity: DataOrderanRinci): DataOrderanRinciDTO{
-            val localDate = LocalDateTime.ofInstant(
-                Instant.ofEpochMilli(entity.orderan.tanggal),
-                ZoneId.systemDefault()
-            )
             return DataOrderanRinciDTO(
                 id = entity.id,
-                orderanId = entity.orderan.id,
-                tanggal = localDate.format(Companion.formatter),
+                stiker = DataStikerDTO.fromEntity(entity.stiker),
                 stikerId = entity.stiker.id,
                 stikerNama = entity.stiker.namaStiker,
                 stikerKode = entity.stiker.kodeStiker,
-                stikerUkuran = "${entity.stiker.panjang} X ${entity.stiker.lebar}",
+                ukuran = "${entity.stiker.panjang} X ${entity.stiker.lebar}",
                 jumlah = entity.jumlah
             )
         }

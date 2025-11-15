@@ -1,6 +1,7 @@
 package com.girsang.server.controller
 
-import com.girsang.server.model.DTO.DataUMKMDTO
+import com.girsang.server.model.dto.DataUMKMDTO
+import com.girsang.server.model.entity.DataUmkm
 import com.girsang.server.service.DataUmkmService
 import jakarta.validation.Valid
 import org.springframework.http.ResponseEntity
@@ -19,6 +20,15 @@ class DataUmkmController(
     @GetMapping("/{id}")
     fun cariById(@PathVariable id: Long): ResponseEntity<DataUMKMDTO> =
         ResponseEntity.ok(service.cariById(id))
+
+    @GetMapping("/cari")
+    fun cariUMKM(
+        @RequestParam(required = false) namaPemilik: String?,
+        @RequestParam(required = false) namaUsaha: String?,
+        @RequestParam(required = false) alamat: String?
+    ): List<DataUmkm> {
+        return service.cariUMKM(namaPemilik, namaUsaha, alamat)
+    }
 
     @PostMapping
     fun simpan(@Valid @RequestBody dto: DataUMKMDTO): ResponseEntity<Any> =

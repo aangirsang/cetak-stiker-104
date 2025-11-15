@@ -1,5 +1,6 @@
-package com.girsang.server.model.DTO
+package com.girsang.server.model.dto
 
+import com.girsang.server.model.entity.DataKategori
 import com.girsang.server.model.entity.DataUmkm
 
 data class DataUMKMDTO(
@@ -11,7 +12,7 @@ data class DataUMKMDTO(
     var tglLahir: Long,
     var alamat: String,
     var noTelpon: String,
-    var dataKategoriId: Long,
+    var dataKategori: DataKategori,
     var facebookNama: String? = "",
     var instagramNama: String? = "",
     var status: Boolean = true,
@@ -27,10 +28,10 @@ data class DataUMKMDTO(
                 tglLahir = entity.tglLahir,
                 alamat = entity.alamat,
                 noTelpon = entity.noTelpon,
-                dataKategoriId = entity.dataKategori.id,
+                dataKategori = entity.dataKategori,
                 facebookNama = entity.facebookNama,
                 instagramNama = entity.instagramNama,
-                status = entity.status,
+                status = entity.status
             )
         }
     }
