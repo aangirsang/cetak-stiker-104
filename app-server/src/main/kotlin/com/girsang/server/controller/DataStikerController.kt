@@ -47,9 +47,13 @@ class DataStikerController(
         }
 
     @DeleteMapping("/{id}")
-    fun hapus(@PathVariable id: Long): ResponseEntity<Unit> {
-        service.hapus(id)
-        return ResponseEntity.noContent().build()
+    fun hapus(@PathVariable id: Long): ResponseEntity<Any> {
+        return try {
+            service.hapus(id)
+            ResponseEntity.ok(mapOf("message" to "Data berhasil dihapus"))
+        } catch (e: RuntimeException) {
+            ResponseEntity.status(400).body(mapOf("error" to e.message))
+        }
     }
 
     @GetMapping("/kode/{umkmId}")

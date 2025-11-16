@@ -21,6 +21,6 @@ data class DataOrderan (
     var tanggal: Long,
     var totalStiker: Int,
 
-    @OneToMany(mappedBy = "orderan", cascade = [CascadeType.ALL], orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "dataOrderan", cascade = [CascadeType.ALL], orphanRemoval = true, fetch = FetchType.LAZY)
     var rincian: MutableList<DataOrderanRinci> = mutableListOf()
 )

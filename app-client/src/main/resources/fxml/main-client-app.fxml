@@ -9,7 +9,10 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
 
-<BorderPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="782.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.girsang.client.controller.MainClientAppController">
+<BorderPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity"
+            minHeight="-Infinity" minWidth="-Infinity" prefHeight="782.0" prefWidth="1024.0"
+            xmlns="http://javafx.com/javafx/21.0.4" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.girsang.client.controller.MainClientAppController">
    <top>
       <MenuBar fx:id="menuBar" BorderPane.alignment="CENTER">
          <menus>

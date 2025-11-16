@@ -14,7 +14,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Line?>
 
-<AnchorPane prefHeight="919.0" prefWidth="1606.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.girsang.client.controller.DataStikerController">
+<AnchorPane prefHeight="919.0" prefWidth="1606.0" stylesheets="@../css/style.css"
+            xmlns="http://javafx.com/javafx/21.0.4" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.girsang.client.controller.DataStikerController">
    <children>
       <TitledPane collapsible="false" layoutX="-2.0" prefHeight="851.0" prefWidth="764.0" text="Data Stiker UMKM" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <content>

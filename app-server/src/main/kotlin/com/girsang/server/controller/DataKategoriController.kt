@@ -40,12 +40,12 @@ class DataKategoriController(private val service: DataKategoriService) {
     }
 
     @DeleteMapping("/{id}")
-    fun hapus(@PathVariable id: Long): ResponseEntity<Map<String, String>> {
+    fun hapus(@PathVariable id: Long): ResponseEntity<Any> {
         return try {
             service.hapus(id)
-            ResponseEntity.ok(mapOf("message" to "Data Kategori Berhasil Dihapus"))
-        } catch (e: NoSuchElementException) {
-            ResponseEntity.status(404).body(mapOf("message" to " Kategori Tidak Ditemukan"))
+            ResponseEntity.ok(mapOf("message" to "Data berhasil dihapus"))
+        } catch (e: RuntimeException) {
+            ResponseEntity.status(400).body(mapOf("error" to e.message))
         }
     }
 }

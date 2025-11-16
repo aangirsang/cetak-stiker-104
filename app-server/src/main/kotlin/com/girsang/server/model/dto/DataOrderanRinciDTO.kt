@@ -1,11 +1,6 @@
 package com.girsang.server.model.dto
 
 import com.girsang.server.model.entity.DataOrderanRinci
-import java.time.Instant
-import java.time.LocalDateTime
-import java.time.ZoneId
-import java.time.format.DateTimeFormatter
-import java.util.Locale
 import kotlin.Long
 
 data class DataOrderanRinciDTO (
@@ -21,11 +16,11 @@ data class DataOrderanRinciDTO (
         fun fromEntity(entity: DataOrderanRinci): DataOrderanRinciDTO{
             return DataOrderanRinciDTO(
                 id = entity.id,
-                stiker = DataStikerDTO.fromEntity(entity.stiker),
-                stikerId = entity.stiker.id,
-                stikerNama = entity.stiker.namaStiker,
-                stikerKode = entity.stiker.kodeStiker,
-                ukuran = "${entity.stiker.panjang} X ${entity.stiker.lebar}",
+                stiker = DataStikerDTO.fromEntity(entity.dataStiker),
+                stikerId = entity.dataStiker.id,
+                stikerNama = entity.dataStiker.namaStiker,
+                stikerKode = entity.dataStiker.kodeStiker,
+                ukuran = "${entity.dataStiker.panjang} X ${entity.dataStiker.lebar}",
                 jumlah = entity.jumlah
             )
         }

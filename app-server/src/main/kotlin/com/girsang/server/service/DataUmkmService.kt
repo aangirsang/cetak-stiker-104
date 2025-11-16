@@ -2,7 +2,6 @@ package com.girsang.server.service
 
 import com.girsang.server.model.dto.DataUMKMDTO
 import com.girsang.server.model.entity.DataUmkm
-import com.girsang.server.repository.DataKategoriRepository
 import com.girsang.server.repository.DataUmkmRepository
 import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Service
@@ -11,10 +10,14 @@ import org.springframework.web.bind.annotation.RequestBody
 @Service
 class DataUmkmService(
     private val repo: DataUmkmRepository,
-    private val repoKategori: DataKategoriRepository
+    private val deletionService: EntityDeletionService
 ) {
     fun semua(): List<DataUMKMDTO> =
         repo.findAll().map { DataUMKMDTO.fromEntity(it) }
+
+    fun semuaAktif(): List<DataUMKMDTO> =
+        repo.findAllByStatusTrue()
+            .map { DataUMKMDTO.fromEntity(it) }
 
     fun cariById(id: Long): DataUMKMDTO {
         val data = repo.findById(id).orElseThrow { NoSuchElementException("UMKM tidak ditemukan") }
@@ -74,6 +77,6 @@ class DataUmkmService(
 
     fun hapus(id: Long) {
         if (!repo.existsById(id)) throw NoSuchElementException("Data tidak ditemukan")
-        repo.deleteById(id)
+        deletionService.safeDelete(DataUmkm::class.java, id)
     }
 }

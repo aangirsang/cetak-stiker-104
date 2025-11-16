@@ -15,11 +15,11 @@ data class DataOrderanRinci (
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "orderan_id")
-    var orderan: DataOrderan,
+    var dataOrderan: DataOrderan,
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "stiker_id")
-    var stiker: DataStiker,
+    var dataStiker: DataStiker,
 
     var jumlah: Int
 )

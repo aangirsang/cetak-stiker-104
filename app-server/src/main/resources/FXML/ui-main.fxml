@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="759.0" prefWidth="811.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.girsang.server.controller.UI.UIMainController">
+<AnchorPane prefHeight="759.0" prefWidth="811.0" xmlns="http://javafx.com/javafx/21.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.girsang.server.controller.ui.UIMainController">
    <children>
       <HBox alignment="CENTER" layoutX="176.0" layoutY="26.0" prefHeight="175.0" prefWidth="459.0" style="-fx-border-color: #BABABA;      /* warna garis border */                         -fx-border-width: 1.3;           /* ketebalan border */                         -fx-border-radius: 8;         /* sudut border melengkung */                         -fx-background-radius: 8;     /* sudut background melengkung */                         -fx-border-style: solid;       /* jenis garis solid */                         -fx-background-color: #f4f4f4;" AnchorPane.leftAnchor="176.0" AnchorPane.rightAnchor="176.0" AnchorPane.topAnchor="20.0">
          <children>

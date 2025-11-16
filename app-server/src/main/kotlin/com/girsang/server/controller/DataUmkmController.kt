@@ -17,6 +17,10 @@ class DataUmkmController(
     fun semua(): ResponseEntity<List<DataUMKMDTO>> =
         ResponseEntity.ok(service.semua())
 
+    @GetMapping("/aktif")
+    fun semuaAktif(): ResponseEntity<List<DataUMKMDTO>> =
+        ResponseEntity.ok(service.semuaAktif())
+
     @GetMapping("/{id}")
     fun cariById(@PathVariable id: Long): ResponseEntity<DataUMKMDTO> =
         ResponseEntity.ok(service.cariById(id))
@@ -53,8 +57,12 @@ class DataUmkmController(
         }
 
     @DeleteMapping("/{id}")
-    fun hapus(@PathVariable id: Long): ResponseEntity<Unit> {
-        service.hapus(id)
-        return ResponseEntity.noContent().build()
+    fun hapus(@PathVariable id: Long): ResponseEntity<Any> {
+        return try {
+            service.hapus(id)
+            ResponseEntity.ok(mapOf("message" to "Data berhasil dihapus"))
+        } catch (e: RuntimeException) {
+            ResponseEntity.status(400).body(mapOf("error" to e.message))
+        }
     }
 }

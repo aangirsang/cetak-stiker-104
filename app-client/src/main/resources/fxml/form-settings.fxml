@@ -10,7 +10,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane prefHeight="215.0" prefWidth="328.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.girsang.client.controller.SettingsController">
+<AnchorPane prefHeight="215.0" prefWidth="328.0"
+            xmlns="http://javafx.com/javafx/21.0.4" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.girsang.client.controller.SettingsController">
     <children>
       <TitledPane collapsible="false" prefHeight="220.0" prefWidth="328.0" text="Setting Server">
          <content>

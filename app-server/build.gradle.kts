@@ -68,7 +68,7 @@ allOpen {
 
 // JavaFX configuration
 javafx {
-    version = "21"
+    version = "21.0.4"
     modules = listOf("javafx.controls", "javafx.fxml")
 }
 

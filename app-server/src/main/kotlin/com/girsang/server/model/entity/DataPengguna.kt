@@ -1,5 +1,6 @@
 package com.girsang.server.model.entity
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import jakarta.persistence.*
 import jakarta.validation.constraints.*
@@ -25,5 +26,9 @@ data class DataPengguna(
     @JoinColumn(name = "data_level_id")
     var dataLevel: DataLevel,
 
-    var status: Boolean = true
+    var status: Boolean = true,
+
+    @OneToMany(mappedBy = "dataPengguna", fetch = FetchType.LAZY, targetEntity = DataOrderan::class)
+    @JsonIgnore // supaya JSON tidak error lazy loading
+    var daftarDataOrderan: List<DataOrderan> = mutableListOf()
 )

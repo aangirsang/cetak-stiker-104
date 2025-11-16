@@ -6,7 +6,10 @@ import org.springframework.stereotype.Service
 import java.util.Optional
 
 @Service
-class DataKategoriService (private val repo: DataKategoriRepository) {
+class DataKategoriService (
+    private val repo: DataKategoriRepository,
+    private val deletionService: EntityDeletionService
+) {
 
     fun semuaKategori(): List<DataKategori> = repo.findAll()
     fun cariId(id: Long): Optional<DataKategori> = repo.findById(id)
@@ -21,10 +24,7 @@ class DataKategoriService (private val repo: DataKategoriRepository) {
     }
 
     fun hapus(id: Long) {
-        if(repo.existsById(id)){
-            repo.deleteById(id)
-        } else {
-            throw NoSuchElementException ("Data Kategori dengan id $id tidak ditemukan")
-        }
+        if (!repo.existsById(id)) throw NoSuchElementException("Data tidak ditemukan")
+        deletionService.safeDelete(DataKategori::class.java, id)
     }
 }

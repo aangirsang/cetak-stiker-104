@@ -1,4 +1,4 @@
-package com.girsang.server.controller.UI
+package com.girsang.server.controller.ui
 
 import com.girsang.server.config.DatabasePathFromProperties
 import com.girsang.server.service.DatabaseBackupService

@@ -1,4 +1,4 @@
-package com.girsang.server.controller.UI
+package com.girsang.server.controller.ui
 
 import com.girsang.server.ServerUI
 import com.girsang.server.SpringApp
@@ -57,7 +57,10 @@ class UIMainController: Initializable {
         txtPortServer.text = "-"
         txtURLServer.text = "-"
         btnStopServer.isDisable = false
-        txtConsole.style = "-fx-control-inner-background: black; -fx-text-fill: white; -fx-font-family: Consolas; -fx-font-size: 12px;"
+        txtConsole.style = "" +
+                "-fx-control-inner-background: black; " +
+                "-fx-text-fill: white; -fx-font-family: 'Consolas', 'Courier New', monospace;" +
+                " -fx-font-size: 12px;"
 
 
         btnStartServer.setOnAction { startServer() }

@@ -24,5 +24,6 @@ interface DataUmkmRepository: JpaRepository<DataUmkm, Long> {
         @Param("alamat") alamat: String?
     ): List<DataUmkm>
 
+    fun findAllByStatusTrue(): List<DataUmkm>
 
 }

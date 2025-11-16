@@ -1,5 +1,6 @@
 package com.girsang.server.model.entity
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import jakarta.persistence.*
 import jakarta.validation.constraints.*
@@ -53,4 +54,9 @@ data class DataUmkm(
 
     @Column(nullable = false)
     var status: Boolean = true,
+
+    // 🔁 OneToMany ke DataStiker
+    @OneToMany(mappedBy = "dataUmkm", fetch = FetchType.LAZY, targetEntity = DataStiker::class)
+    @JsonIgnore // supaya JSON tidak error lazy loading
+    open var daftarStiker: List<DataStiker> = mutableListOf()
 )

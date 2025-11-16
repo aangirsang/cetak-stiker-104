@@ -459,6 +459,7 @@ class DataUmkmController : Initializable{
                             PesanPeringatan.error(
                                 "Hapus Data",
                                 "Server returned ${response.statusCode()} : ${response.body()}")
+                            println("Server returned ${response.statusCode()} : ${response.body()}")
                         }
                     }
                 } catch (ex: Exception) {

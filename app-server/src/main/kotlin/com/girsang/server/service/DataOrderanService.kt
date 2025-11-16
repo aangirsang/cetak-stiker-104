@@ -55,8 +55,8 @@ class DataOrderanService(
                 .orElseThrow { NoSuchElementException("Stiker ID ${r.stikerId} tidak ditemukan") }
             DataOrderanRinci(
                 id = 0,
-                orderan = orderan,
-                stiker = stiker,
+                dataOrderan = orderan,
+                dataStiker = stiker,
                 jumlah = r.jumlah
             )
         }.toMutableList()
@@ -89,8 +89,8 @@ class DataOrderanService(
                 .orElseThrow { NoSuchElementException("Stiker ID ${r.stikerId} tidak ditemukan") }
             DataOrderanRinci(
                 id = 0,
-                orderan = existing,
-                stiker = stiker,
+                dataOrderan = existing,
+                dataStiker = stiker,
                 jumlah = r.jumlah
             )
         }

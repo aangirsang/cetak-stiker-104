@@ -2,6 +2,7 @@ package com.girsang.server.service
 
 import com.girsang.server.model.dto.DataStikerDTO
 import com.girsang.server.model.entity.DataStiker
+import com.girsang.server.model.entity.DataUmkm
 import com.girsang.server.repository.DataStikerRepository
 import com.girsang.server.repository.DataUmkmRepository
 import org.springframework.http.ResponseEntity
@@ -12,7 +13,8 @@ import java.time.LocalDate
 @Service
 class DataStikerService(
     private val repo: DataStikerRepository,
-    private val umkmRepo: DataUmkmRepository
+    private val umkmRepo: DataUmkmRepository,
+    private val deletionService: EntityDeletionService
 ) {
 
     fun semua(): List<DataStikerDTO> =
@@ -84,8 +86,8 @@ class DataStikerService(
     }
 
     fun hapus(id: Long) {
-        if (!repo.existsById(id)) throw NoSuchElementException("Stiker tidak ditemukan")
-        repo.deleteById(id)
+        if (!repo.existsById(id)) throw NoSuchElementException("Data tidak ditemukan")
+        deletionService.safeDelete(DataStiker::class.java, id)
     }
 
     private fun generateKodeStiker(namaUMKM: String, tahunShort: Int): String {

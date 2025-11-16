@@ -16,7 +16,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="880.0" prefWidth="1802.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.girsang.client.controller.DataUmkmController">
+<AnchorPane prefHeight="880.0" prefWidth="1802.0" stylesheets="@../css/style.css"
+            xmlns="http://javafx.com/javafx/21.0.4" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.girsang.client.controller.DataUmkmController">
    <children>
       <TitledPane animated="false" collapsible="false" layoutX="-8.0" prefHeight="801.0" prefWidth="901.0" text="Data UMKM" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <content>

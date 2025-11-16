@@ -14,7 +14,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="765.0" prefWidth="1313.0" styleClass="card" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.girsang.client.controller.DataPenggunaController">
+<AnchorPane prefHeight="765.0" prefWidth="1313.0" styleClass="card" stylesheets="@../css/style.css"
+            xmlns="http://javafx.com/javafx/21.0.4" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.girsang.client.controller.DataPenggunaController">
    <children>
       <TitledPane collapsible="false" prefHeight="485.0" prefWidth="600.0" text="Data Pengguna" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <content>
